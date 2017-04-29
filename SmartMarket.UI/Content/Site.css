@@ -1,152 +1,254 @@
-﻿*
+﻿/*global settings
+----------------------------------------------------------------------------------------------*/
+@font-face
 {
-    margin:0px;
-    padding:0px;
+    font-family: OpenSans-Light;
+    src: url(fonts/OpenSans-Light.ttf);
 }
 
-.sidenav 
+@font-face
+{
+    font-family: OpenSans-Regular;
+    src: url(fonts/OpenSans-Regular.ttf);
+}
+
+@font-face
+{
+    font-family: Comfortaa-light;
+    src: url(fonts/comfortaa-light.ttf);
+}
+
+*
+{
+    margin: 0;
+    padding: 0;
+}
+
+html
 {
     height: 100%;
-    width: 0;
-    position: fixed;
-    z-index: 500;
-    top: 0;
-    left: 0;
-    background-color: #fff;
-    overflow: hidden;
-    transition: 0.5s; /* 0.5 second transition effect to slide in the sidenav */
 }
 
-    .sidenav.show 
-    {
-        width: 250px;
-    }
+article, aside, details, figcaption, figure, footer, header, hgroup, main, nav, section, summary
+{
+    display: block;
+}
 
-    .sidenav a 
-    {
-        padding: 8px 8px 8px 32px;
-        text-decoration: none;
-        font-size: 25px;
-        color: #818181;
-        display: block;
-        transition: 0.3s
-    }
+body
+{
+    font: 14px/18px OpenSans-Regular, sans-serif;
+    height: 100%;
+    overflow-y: hidden;
+}
+*
+{
+    margin: 0px;
+    padding: 0px;
+}
 
-        .sidenav a:hover, .offcanvas a:focus 
-        {
-            color: #0099ff;
-        }
+/*aside menu
+----------------------------------------------------------------------------------------------*/ 
 
-    .sidenav .closebtn {
-        position: relative;
-        top: 0;
-        right: 25px;
-        font-size: 36px;
-        margin-left: 50px;
-    }
+.sidenav
+{
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 300px;
+    height: 100%;
+    opacity: 0.95;
+    transition: left 1s ease-in-out;
+    z-index: 900;
+}
 
-    .sidenav .menu-header 
+    .sidenav .menu-header
     {
         height: 80px;
-        margin-left: 80px;
+        padding-left: 80px;
         background-color: #000000;
     }
 
-    .menu-header > a > img
-    {
-        height:120px;
-        z-index:1000;
-    }
-
-
     .sidenav .menu-content
     {
-        height: 100%;
+        padding: 17px 17px 0px 20px;
+        overflow-y: auto;
+        height: calc(100% - 134px);
+        box-sizing: border-box;
+        background-color: #f2f2f2;
     }
 
-.sidenav .menu-list {
-    height: 100%;
-    margin-right: 78px;
-    background-color: #f2f2f2;
-}
-
-
-#main 
-{
-    transition: margin-left .5s;
-    padding: 20px;
-}
-
-/* On smaller screens, where height is less than 450px, change the style of the sidenav (less padding and a smaller font size) */
-@media screen and (max-height: 450px) {
-    .sidenav 
-    {
-        padding-top: 15px;
-    }
-
-        .sidenav a 
+        .sidenav .menu-content ul
         {
-            font-size: 18px;
+            color: #bababa;
+            list-style: none;
         }
-}
 
-.menu-open-close
+            .sidenav .menu-content ul li
+            {
+                margin-bottom: 30px;
+            }
+
+            .sidenav .menu-content ul a
+            {
+                font-size: 16px;
+                margin-bottom: 3px;
+                display: block;
+                padding-left: 40px;
+                position: relative;
+                word-wrap: break-word;
+            }
+
+                .sidenav .menu-content ul a:before
+                {
+                    content: "";
+                    width: 10px;
+                    height: 10px;
+                    border-radius: 6px;
+                    display: block;
+                    position: absolute;
+                    left: 0px;
+                    top: 4px;
+                    background-color: #dddddd;
+                }
+
+a
 {
-    cursor: pointer;
-    margin: 0 auto;
-    position: fixed;
-    width: 80px;
-    height: 80px;
-    background-color: #000000;
-    display: initial;
-    z-index: 1000;
+    text-decoration: none;
 }
 
-.menu-top 
+.non-active-item a
 {
-    top: 33px;
+    color: #808080;
 }
+    .non-active-item a:hover
+    {
+        color: #6ea8f8 !important;
+    }
 
-.menu-middle 
+.active-item a
 {
-    top: 41px;
+    color: #ff7e00;
 }
 
-.menu-bottom 
+    .sidenav .menu-header a
+    {
+        font-size: 23px;
+        text-decoration: none;
+        width: 280px;
+        color: #fff;
+        display: inline-block;
+    }
+
+        .sidenav .menu-header a > span
+        {
+            font-size: 30px;
+            margin-top: 25px;
+            margin-left: 40px;
+            display: inline-block;
+        }
+
+.logo
 {
-    top: 49px;
+    height: 120px;
+    float: right;
 }
 
-.menu-global 
+
+
+
+@media (max-width: 1300px)
 {
-    backface-visibility: hidden; 
-    position: absolute;
-    left: 28px; 
-    border-top: 3px solid white;
-    width: 24px;
-    transition: 0.55s;
+    .hide-menu
+    {
+        left: -340px;
+    }
+
+    .menu-open-close
+    {
+        cursor: pointer;
+        margin: 0 auto;
+        position: fixed;
+        width: 80px;
+        height: 80px;
+        background-color: #000;
+        display: initial;
+        z-index: 1000;
+        opacity: 0.95;
+    }
+
+    .menu-global
+    {
+        backface-visibility: hidden;
+        position: absolute;
+        left: 28px;
+        border-top: 3px solid white;
+        width: 24px;
+        transition: 0.55s;
+    }
+
+    .menu-top
+    {
+        top: 33px;
+    }
+
+    .menu-middle
+    {
+        top: 41px;
+    }
+
+    .menu-bottom
+    {
+        top: 49px;
+    }
+
+    .menu-top-click
+    {
+        backface-visibility: hidden;
+        top: 40px;
+        transform: rotate(50deg);
+        transition: 0.55s 0.5s;
+    }
+
+    .menu-middle-click
+    {
+        opacity: 0;
+    }
+
+    .menu-bottom-click
+    {
+        backface-visibility: hidden;
+        top: 40px;
+        transform: rotate(-410deg);
+        transition: 0.55s 0.5s;
+    }
 }
 
-.menu-top-click 
+/*content
+----------------------------------------------------------------------------------------------*/ 
+
+.about
 {
-    backface-visibility: hidden;
-    top: 40px;
-    transform: rotate(50deg);
-    transition: 0.55s 0.5s;
+
 }
 
-.menu-middle-click 
+.top-left
 {
-    opacity: 0;
+
 }
 
-.menu-bottom-click 
+.top-right
 {
-    backface-visibility: hidden;
-    top: 40px;
-    transform: rotate(-410deg);
-    transition: 0.55s 0.5s;
+
 }
 
+.bottom-left
+{
+
+}
+
+.bottom-right
+{
+
+}
 
 
