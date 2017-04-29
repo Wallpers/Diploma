@@ -1,17 +1,152 @@
-﻿body {
-    padding-top: 50px;
-    padding-bottom: 20px;
+﻿*
+{
+    margin:0px;
+    padding:0px;
 }
 
-/* Set padding to keep content from hitting the edges */
-.body-content {
-    padding-left: 15px;
-    padding-right: 15px;
+.sidenav 
+{
+    height: 100%;
+    width: 0;
+    position: fixed;
+    z-index: 500;
+    top: 0;
+    left: 0;
+    background-color: #fff;
+    overflow: hidden;
+    transition: 0.5s; /* 0.5 second transition effect to slide in the sidenav */
 }
 
-/* Set width on the form input elements since they're 100% wide by default */
-input,
-select,
-textarea {
-    max-width: 280px;
+    .sidenav.show 
+    {
+        width: 250px;
+    }
+
+    .sidenav a 
+    {
+        padding: 8px 8px 8px 32px;
+        text-decoration: none;
+        font-size: 25px;
+        color: #818181;
+        display: block;
+        transition: 0.3s
+    }
+
+        .sidenav a:hover, .offcanvas a:focus 
+        {
+            color: #0099ff;
+        }
+
+    .sidenav .closebtn {
+        position: relative;
+        top: 0;
+        right: 25px;
+        font-size: 36px;
+        margin-left: 50px;
+    }
+
+    .sidenav .menu-header 
+    {
+        height: 80px;
+        margin-left: 80px;
+        background-color: #000000;
+    }
+
+    .menu-header > a > img
+    {
+        height:120px;
+        z-index:1000;
+    }
+
+
+    .sidenav .menu-content
+    {
+        height: 100%;
+    }
+
+.sidenav .menu-list {
+    height: 100%;
+    margin-right: 78px;
+    background-color: #f2f2f2;
 }
+
+
+#main 
+{
+    transition: margin-left .5s;
+    padding: 20px;
+}
+
+/* On smaller screens, where height is less than 450px, change the style of the sidenav (less padding and a smaller font size) */
+@media screen and (max-height: 450px) {
+    .sidenav 
+    {
+        padding-top: 15px;
+    }
+
+        .sidenav a 
+        {
+            font-size: 18px;
+        }
+}
+
+.menu-open-close
+{
+    cursor: pointer;
+    margin: 0 auto;
+    position: fixed;
+    width: 80px;
+    height: 80px;
+    background-color: #000000;
+    display: initial;
+    z-index: 1000;
+}
+
+.menu-top 
+{
+    top: 33px;
+}
+
+.menu-middle 
+{
+    top: 41px;
+}
+
+.menu-bottom 
+{
+    top: 49px;
+}
+
+.menu-global 
+{
+    backface-visibility: hidden; 
+    position: absolute;
+    left: 28px; 
+    border-top: 3px solid white;
+    width: 24px;
+    transition: 0.55s;
+}
+
+.menu-top-click 
+{
+    backface-visibility: hidden;
+    top: 40px;
+    transform: rotate(50deg);
+    transition: 0.55s 0.5s;
+}
+
+.menu-middle-click 
+{
+    opacity: 0;
+}
+
+.menu-bottom-click 
+{
+    backface-visibility: hidden;
+    top: 40px;
+    transform: rotate(-410deg);
+    transition: 0.55s 0.5s;
+}
+
+
+
