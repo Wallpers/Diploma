@@ -4,16 +4,102 @@
 
 
 <div class="main-container">
-    <div class="content-container fl">
-        <img class="main-img" src="~/Content/Images/1.jpg"  />
+    <div class="content-container fl" style="background-color:#2AC3E5;">
+        <img class="main-img inside-right-bottom" src="~/Content/Images/1.jpg"  />
     </div>
-    <div class="content-container fl">
-        <img class="main-img" src="~/Content/Images/4.jpg"  />
+    <div class="content-container fl border-dash-right">
+        <div class="inside-left-bottom">
+            <div class="description">
+                <div class="authMessage">PLEASE AUTHORIZE TO GET AN ACCESS</div>
+
+                <a class="auth-img vk" href="/OAuth/LogOn?socialNetworksProvider=Vkontakte" title="Sign In to SMART MARKET through Vkontakte"></a> 
+                
+                <a class="auth-img fb" href="/OAuth/LogOn?socialNetworksProvider=Facebook" title="Sign In to SMART MARKET through Facebook"></a>   
+                
+                <a class="auth-img ld" href="/OAuth/LogOn?socialNetworksProvider=Linkedin" title="Sign In to SMART MARKET through LinkedIn"></a>
+            </div>
+
+        </div>
     </div>
-    <div class="content-container fl">
-        <img class="main-img" src="~/Content/Images/1.jpg"  />
+    
+    <div class="content-container fl border-dash-bottom">
+       <div class="inside-left-top">
+           <div class="description">
+               <form action="#" id="profileForm" method="post">
+                   @*<input data-val="true" data-val-required="The UserId field is required." id="UserId" name="UserId" type="hidden" value="18c7333a-1f7e-4618-8d60-b3e9685603c2">
+                   <input id="OldContactPhone" name="OldContactPhone" type="hidden" value="+380996228248"><input id="OldEmail" name="OldEmail" type="hidden" value="Kokorin1506@mail.ru">
+                   <input data-val="true" data-val-length="The field UserFullName must be a string with a maximum length of 50." data-val-length-max="50" id="UserFullName" name="UserFullName" type="hidden" value="Pavel Kokorin"><input name="__RequestVerificationToken" type="hidden" value="RE6El7ufCsAjECMTcOaNLbaAEDOyAhP6r6gMkGBeXoCbvk5d1epbMVeQO8hUAP2CeGmzeXggwKWMs0tGmLdMH3aBVm7BHMl1YTNY38WvV_mPY-HVF2HAk6SvGYXqKpOnb5HgxYFwOTrFNO0PmqCi9i6eL24I09LDpcf280uM8lM1">
+                   <div class="validation-summary-valid" data-valmsg-summary="true">
+                       <ul>
+                           <li style="display:none"></li>
+                       </ul>
+                   </div><br>*@
+
+                   <div class="profile-container-wrapper ">
+                       <div class="profile-item">
+                           <div class="profile-label">
+                               EMAIL:
+                           </div>
+                           <div class="profile-textbox">
+                               <input class="text-box single-line" id="Email" name="Email" type="text" value="">
+                           </div>
+                       </div>
+                   </div>
+                   @*<div class="profile-container-wrapper">
+                       <div class="profile-item">
+                           <div class="profile-label">
+                               CONTACT PHONE: <span class="required">*</span>
+                           </div>
+                           <div class="profile-textbox">
+                               <input class="text-box single-line" data-val="true" data-val-regex="Please enter a valid phone number in format +38(000)000 00 00" data-val-regex-pattern="^((\+38))(\(?\d{3}\)?)\ -?\d{3}-?\d{2}-?\d{2}" data-val-required="Please enter a valid phone number in format +38(000)000 00 00" id="ContactPhone" name="ContactPhone" type="text" value="">
+                           </div>
+                       </div>
+                   </div>*@
+                   <div class="profile-container-wrapper">
+                       <div class="profile-item">
+                           <div class="profile-label">
+                               PASSWORD: <span class="required">*</span>
+                           </div>
+                           <div class="profile-textbox">
+                               <input class="text-box single-line" data-val="true" id="Password" name="Password" type="password" value="">
+                           </div>
+                       </div>
+                   </div>
+                   <div class="profile-container-wrapper">
+                       <input type="submit" id="submitButton" value="Login" class="submit-button">
+                   </div>
+               </form>
+           </div>
+       </div>
     </div>
-    <div class="content-container fl">
-        <img class="main-img" src="~/Content/Images/4.jpg"  />
+
+    <div class="content-container fl" style="background-color:#000;">
+        <div class="inside-right-top">
+            <div class="description">
+                <a href="#" class="title">Kharkiv National University of Radioelectronics</a>
+                <br>
+                <br>
+                <span>
+                    Welcome to a platform where you can find a variety
+                    of tests in programming languages and IT disciplines.
+                </span>
+                <br>
+                <br>
+                <span>
+                    Take tests in:
+                </span>
+                <ul class="technologies-list">
+                    <li>C++</li>
+                    <li>.NET</li>
+                    <li>Java</li>
+                    <li>JavaScript</li>
+                    <li>QA/Testing</li>
+                </ul>
+                <span>
+                    And if you feel that you need to deepen your knowledge,
+                    our useful books and lectures are at your service!
+                </span>
+            </div>
+        </div>
     </div>
 </div>
