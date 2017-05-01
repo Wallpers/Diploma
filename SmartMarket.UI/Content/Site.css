@@ -258,6 +258,11 @@ a
     background-repeat: no-repeat;
 }
 
+    .auth-img:hover
+    {
+        background-position: left bottom;
+    }
+
 .vk
 {
     background-image: url(Images/Auth/vk_icons.png);
