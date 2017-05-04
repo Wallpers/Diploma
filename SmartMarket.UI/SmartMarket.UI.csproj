@@ -188,7 +188,6 @@
     <Compile Include="Controllers\OAuthController.cs" />
     <Compile Include="Controllers\ProfileController.cs" />
     <Compile Include="Controllers\ValuesController.cs" />
-    <Compile Include="Controllers\ViewModels\User.cs" />
     <Compile Include="Global.asax.cs">
       <DependentUpon>Global.asax</DependentUpon>
     </Compile>
@@ -199,14 +198,19 @@
     <Content Include="Content\bootstrap.css" />
     <Content Include="Content\bootstrap.min.css" />
     <Content Include="Content\Images\1.jpg" />
+    <Content Include="Content\Images\1.png" />
     <Content Include="Content\Images\2.png" />
     <Content Include="Content\Images\3.jpg" />
     <Content Include="Content\Images\4.jpg" />
     <Content Include="Content\Images\Auth\fb_icons.png" />
     <Content Include="Content\Images\Auth\ln_icons.png" />
     <Content Include="Content\Images\Auth\vk_icons.png" />
+    <Content Include="Content\Images\bg-main.jpg" />
     <Content Include="Content\Images\emblem.jpg" />
+    <Content Include="Content\Images\expand.png" />
+    <Content Include="Content\Images\expand_inversed.png" />
     <Content Include="Content\Images\lightbulb.png" />
+    <Content Include="Content\Images\user-bar.png" />
     <Content Include="favicon.ico" />
     <Content Include="fonts\glyphicons-halflings-regular.svg" />
     <Content Include="Global.asax" />
@@ -234,6 +238,11 @@
     <Content Include="ApplicationInsights.config">
       <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
     </Content>
+    <Content Include="fonts\Comfortaa-Bold.ttf" />
+    <Content Include="fonts\Comfortaa-Light.ttf" />
+    <Content Include="fonts\Comfortaa-Regular.ttf" />
+    <Content Include="fonts\OpenSans-Light.ttf" />
+    <Content Include="fonts\OpenSans-Regular.ttf" />
     <None Include="Scripts\jquery-1.10.2.intellisense.js" />
     <Content Include="Scripts\jquery-1.10.2.js" />
     <Content Include="Scripts\jquery-1.10.2.min.js" />
@@ -274,6 +283,12 @@
   </ItemGroup>
   <ItemGroup>
     <Content Include="Scripts\jquery-1.10.2.min.map" />
+  </ItemGroup>
+  <ItemGroup>
+    <ProjectReference Include="..\SmartMarket.BLL\SmartMarket.BLL.csproj">
+      <Project>{f72420ac-6623-4d73-abf4-acc678c88906}</Project>
+      <Name>SmartMarket.BLL</Name>
+    </ProjectReference>
   </ItemGroup>
   <PropertyGroup>
     <VisualStudioVersion Condition="'$(VisualStudioVersion)' == ''">10.0</VisualStudioVersion>

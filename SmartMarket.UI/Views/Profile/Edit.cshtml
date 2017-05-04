@@ -1,10 +1,70 @@
-﻿@model SmartMarket.UI.Controllers.ViewModels.User
+﻿@using SmartMarket.BLL.ViewModels
+@model User
 
 @{
-    ViewBag.Title = "Edit";
+    ViewBag.Path = "PROFILE > Edit";
+    var user = Model ?? new User();
     Layout = "~/Views/Shared/_Layout.cshtml";
 }
 
+<div class="edit-conteiner">
+    <form action="#" id="profileForm" method="post">
+        @*<input data-val="true" data-val-required="The UserId field is required." id="UserId" name="UserId" type="hidden" value="18c7333a-1f7e-4618-8d60-b3e9685603c2">
+        <input id="OldContactPhone" name="OldContactPhone" type="hidden" value="+380996228248"><input id="OldEmail" name="OldEmail" type="hidden" value="Kokorin1506@mail.ru">
+        <input data-val="true" data-val-length="The field UserFullName must be a string with a maximum length of 50." data-val-length-max="50" id="UserFullName" name="UserFullName" type="hidden" value="Pavel Kokorin"><input name="__RequestVerificationToken" type="hidden" value="RE6El7ufCsAjECMTcOaNLbaAEDOyAhP6r6gMkGBeXoCbvk5d1epbMVeQO8hUAP2CeGmzeXggwKWMs0tGmLdMH3aBVm7BHMl1YTNY38WvV_mPY-HVF2HAk6SvGYXqKpOnb5HgxYFwOTrFNO0PmqCi9i6eL24I09LDpcf280uM8lM1">
+        <div class="validation-summary-valid" data-valmsg-summary="true">
+            <ul>
+                <li style="display:none"></li>
+            </ul>
+        </div><br>*@
+        <div class="profile-container-wrapper ">
+            <div class="profile-item">
+                <div class="profile-label">
+                    NAME*:
+                </div>
+                <div class="profile-textbox">
+                    <input class="text-box single-line" id="Name" name="Name" type="text" value="@user.Name">
+                </div>
+            </div>
+        </div>
+
+        <div class="profile-container-wrapper ">
+            <div class="profile-item">
+                <div class="profile-label">
+                    LASTNAME*:
+                </div>
+                <div class="profile-textbox">
+                    <input class="text-box single-line" id="LastName" name="LastName" type="text" value="@user.LastName">
+                </div>
+            </div>
+        </div>
+
+        <div class="profile-container-wrapper ">
+            <div class="profile-item">
+                <div class="profile-label">
+                    EMAIL*:
+                </div>
+                <div class="profile-textbox">
+                    <input class="text-box single-line" id="Email" name="Email" type="text" value="@user.Email">
+                </div>
+            </div>
+        </div>
+
+        <div class="profile-container-wrapper">
+            <div class="profile-item">
+                <div class="profile-label">
+                    PASSWORD*: <span class="required">*</span>
+                </div>
+                <div class="profile-textbox">
+                    <input class="text-box single-line" data-val="true" id="Password" name="Password" type="password" value="">
+                </div>
+            </div>
+        </div>
+
+        <div class="profile-container-wrapper">
+            <input type="submit" id="submitButton" value="Save" class="submit-button">
+        </div>
+    </form>
 
 
-
+</div>

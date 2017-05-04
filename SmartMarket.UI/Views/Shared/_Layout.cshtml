@@ -1,4 +1,11 @@
-﻿<!DOCTYPE html>
+﻿@{ 
+    ViewBag.Name = "Pavel";
+    ViewBag.LastName = "Kokorin";
+    string name = ViewBag.Name;
+    string lastName = ViewBag.LastName;
+}
+
+<!DOCTYPE html>
 <html>
 <head>
     <meta charset="utf-8" />
@@ -8,12 +15,17 @@
     @Scripts.Render("~/bundles/modernizr")
 </head>
 <body>
-    <aside class="sidenav hide-menu">
+    <aside class="sidenav hide-menu z-high">
         <div class="menu-header">
             <a href="#">
                 <span>SMART</span>
                 <img class="logo" src="~/Content/Images/lightbulb.png" />
             </a>
+        </div>
+        <div class="user-bar">
+            <span>@name @lastName</span>
+            <a id="profile-icon" title="Profile" href="#"></a>
+            <a id="logout-icon" title="Log out" href="#"></a>
         </div>
         <div class="menu-content">
             <ul>
@@ -32,7 +44,12 @@
             </ul>
         </div>    
     </aside> 
-    <div onclick="openNav()" class="menu-open-close">
+    <header class="header z-middle">
+        <span class="page-title head-title">
+            @ViewBag.Path
+        </span>
+    </header>
+    <div onclick="openNav()" class="menu-open-close z-highest">
         <span class="menu-global menu-top"></span>
         <span class="menu-global menu-middle"></span>
         <span class="menu-global menu-bottom"></span>

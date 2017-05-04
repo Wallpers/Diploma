@@ -22,5 +22,7 @@ namespace SmartMarket.DAL.Entities
         public string Password { get; set; }
 
         public bool IsEmailConfirmed { get; set; }
+
+        ICollection<Role> Roles;
     }
 }

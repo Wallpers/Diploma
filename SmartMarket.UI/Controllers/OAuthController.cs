@@ -9,7 +9,6 @@ using System.Web.Mvc;
 using Newtonsoft.Json.Linq;
 using SmartMarket.UI.Controllers.Helpers.Extension;
 using Newtonsoft.Json;
-using SmartMarket.UI.Controllers.ViewModels;
 
 namespace SmartMarket.UI.Controllers
 {
@@ -82,15 +81,11 @@ namespace SmartMarket.UI.Controllers
                 userVK.Access = access;
             }
 
-            var user = new User()
-            {
+            return RedirectToAction("Edit", "Profile", new {
                 Email = userVK.Access.Email,
                 Name = userVK.Name,
                 LastName = userVK.LastName
-            };
-
-            // Should be error.
-            return RedirectToAction("Edit", "Profile", new { user = user});
+            });
         }
     }
 }

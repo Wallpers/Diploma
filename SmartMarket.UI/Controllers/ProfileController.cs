@@ -1,4 +1,4 @@
-﻿using SmartMarket.UI.Controllers.ViewModels;
+﻿using SmartMarket.BLL.ViewModels;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -12,7 +12,7 @@ namespace SmartMarket.UI.Controllers
         [HttpGet]
         public ActionResult Edit(User user)
         {
-            return View();
+            return View(user);
         }
 
         //[HttpPost]
