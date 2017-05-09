@@ -1,0 +1,47 @@
+﻿@model SmartMarket.BLL.ViewModels.LoginModel
+
+@using (Ajax.BeginForm("Login", "Account", new AjaxOptions { UpdateTargetId = "login-block" }))
+{
+    <div class="profile-container-wrapper ">
+        <div class="profile-item">
+            <div class="profile-label">
+                @Html.LabelFor(model => model.Email)
+            </div>
+            <div class="profile-textbox">
+                @Html.TextBoxFor(model => model.Email, new { @class = "text-box single-line" })
+            </div>
+        </div>
+    </div>
+
+    <div class="profile-container-wrapper">
+        <div class="profile-item">
+            <div class="profile-label">
+                @Html.LabelFor(model => model.Password)
+            </div>
+            <div class="profile-textbox">
+                @Html.PasswordFor(model => model.Password, new { @class = "text-box single-line" })
+            </div>
+        </div>
+        <div class="profile-item" style="display:none;">
+            <div class="profile-label">
+                @Html.LabelFor(model => model.RememberMe)
+                <div class="checkbox">
+                    @Html.CheckBoxFor(model => model.RememberMe)
+                </div>
+            </div>
+        </div>
+    </div>
+    <div class="profile-container-wrapper">
+        <input type="submit" id="loginButton" value="@Model.LoginTextButton" class="submit-button">
+    </div>
+    <div class="profile-container-wrapper">
+        <div class="profile-item">
+            <div class="profile-label">
+                @Html.ValidationSummary()
+            </div>
+        </div>
+    </div>
+}
+
+
+

@@ -1,11 +1,4 @@
-﻿@{ 
-    ViewBag.Name = "Pavel";
-    ViewBag.LastName = "Kokorin";
-    string name = ViewBag.Name;
-    string lastName = ViewBag.LastName;
-}
-
-<!DOCTYPE html>
+﻿<!DOCTYPE html>
 <html>
 <head>
     <meta charset="utf-8" />
@@ -22,24 +15,28 @@
                 <img class="logo" src="~/Content/Images/lightbulb.png" />
             </a>
         </div>
-        <div class="user-bar">
-            <span>@name @lastName</span>
-            <a id="profile-icon" title="Profile" href="#"></a>
-            <a id="logout-icon" title="Log out" href="#"></a>
-        </div>
+        @if (User.Identity.IsAuthenticated)
+        {
+            <div class="user-bar">
+                <span>Pavel Kokorin</span>
+                <a id="profile-icon" title="Profile" href="~/Profile/Edit"></a>
+                <a id="logout-icon" title="Log out" href="~/Account/Logout"></a>
+            </div>
+        }
+        
         <div class="menu-content">
             <ul>
                 <li class="non-active-item">
-                    <a href="">Markets</a>
+                    <a href="">Item 1</a>
                 </li>
                 <li class="non-active-item">
-                    <a href="">Instructions</a>
+                    <a href="">Item 2</a>
                 </li>
                 <li class="non-active-item">
-                    <a href="">Analogs</a>
+                    <a href="">Item 3</a>
                 </li>
                 <li class="non-active-item">
-                    <a href="">Innovation</a>
+                    <a href="">Item 4</a>
                 </li>
             </ul>
         </div>    

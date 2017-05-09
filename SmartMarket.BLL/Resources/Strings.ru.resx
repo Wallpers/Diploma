@@ -117,10 +117,34 @@
   <resheader name="writer">
     <value>System.Resources.ResXResourceWriter, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
   </resheader>
-  <data name="Target" xml:space="preserve">
-    <value>H4sIAAAAAAAEAO1Y227jNhB9L9B/EPjUAlkzl5c2kHeRtZPCaJwEUXbfaWnsEMuLSlKp/W196Cf1FzrU3ZJvSXbTAi0CBNZo5syVM0P99cef4YelFMETGMu1GpKTwTEJQMU64WoxJJmbv/uJfHj//XfhZSKXweeK78zzoaSyQ/LoXHpOqY0fQTI7kDw22uq5G8RaUpZoenp8/DM9OaGAEASxgiC8z5TjEvIHfBxpFUPqMiamOgFhSzq+iXLU4IZJsCmLYUgiyYybMvMF3GB8cU2CC8EZmhGBmJOAKaUdc2jk+ScLkTNaLaIUCUw8rFJAvjkTFkrjzxv2Q/04PvV+0Eawgooz67R8JuDJWRkY2hV/UXhJHTgM3SWG2K2813n4huReC3S8q+h8JIxn6kV2kANwsAMveBR0Xh/V1YBF4/+OglEmXGZgqCBzhomj4C6bCR7/CqsH/QXUUGVCtE1EI/HdGgFJd0anYNzqHual4ZMxCei6HO0K1mItmcKtiXJnpyS4QeVsJqCugFYIIqcN/AIKDHOQ3DHnwGACJwnkMexp7+jy/yttWHJ4dEgwZctrUAv3OCT4kwRXfAlJRSkt+KQ4njQUciaDdSUhbdK3M6lY5eZFSfWC/yf1TZPaV3LNrHsTRZeScfHNtdwxa3/XJvnmiiY2dwjnxpwbCbXCjxpbFVMbCuPww4WgjnEsm1JXcTo8FZZuw1HDg1SeNlsav256gRqBa7VhS4LGhGJ2DYr2THcL+1O7SbhoA5ucrN1phiotpmo1femW8RtOWZpi/lrjuKQEUTGLR++i588pWWDQ2G4YV7W1tSY8xWwBnbeoGi294sa6MXNsxnyKR4nssa0nb0tsK13t/HQbWBPxitv/LiS6PTbPZAegCd4V+iOxB+WuQW1EOZ97YvkSxAQzG3rhSItMqm39dJd00XTa8gWljxDSjt3dyNBeaDpdvRvng7JQFPprspAfiednYbPYP52FbQjNAGmjNNTDkcoJ0YYpSYdjNP2/DdNQD0fqN/i1KPfevnHd9pprl6XWXjfZTjMNy8a2/8LT63QFCwkwZE888V0uWlkHcuAZBtFvYiQ4+tswTJnic7CuWNgIXjtOO9emf88VhlqbiAPuMW++cXIf0b075c69Y/eSqZ6YiR+Z+UGy5Y9tpNfeDv7Todq/c78KbG2vfhVSd3d+Fdi2/XjG3Vfdjftb2P7dd+vqW/S1IUlmGu0tLCyX5QO24q1L8SbYco1+4b7cb90hbX/RCsdg+aKB8N+3FMS+JzagFc9EzXWVPfSobVHF0knuFBxLMN4XxvE5ix2+jsHa/Kb1mYksL8sZJBN1m7k0cxfWgpyJtRtvSHfrzy8F6zaHt6l/sl/DBTSTowtwqz5mXCS13VcbCnILhC+9sr2gVXjTRLjFqka60epAoDJ8Y0hB+eb0ADIVCGZvVcSe4CW2YXldw4LFq2oCbwfZn4j1sIdjzhaGSVtiNPL+Ky31n2nf/w10sp8Z2BUAAA==</value>
+  <data name="Authorized" xml:space="preserve">
+    <value>ВЫ ВОШЛИ В СИСТЕМУ</value>
   </data>
-  <data name="DefaultSchema" xml:space="preserve">
-    <value>dbo</value>
+  <data name="EmailConfirmed" xml:space="preserve">
+    <value>Почта подтверждена.</value>
+  </data>
+  <data name="EmailConfirmHeader" xml:space="preserve">
+    <value>Подтверждение почты. SMART MARKET.</value>
+  </data>
+  <data name="EmailText" xml:space="preserve">
+    <value>Для подтверждения аккаунта кликните на </value>
+  </data>
+  <data name="LinkName" xml:space="preserve">
+    <value>ссылка</value>
+  </data>
+  <data name="NureDescription" xml:space="preserve">
+    <value>Добро пожаловать в место с широким разнообразием тестов по языкам программирования и IT дисциплинам.</value>
+  </data>
+  <data name="NureEnding" xml:space="preserve">
+    <value>Если вы чувствуйте в себе глубокую тягу к знаниям, здесь вы найдете множество книг и лекций по самым разнообразным направлениям.</value>
+  </data>
+  <data name="NureHeader" xml:space="preserve">
+    <value>Харьковский национальный университет радиоэлектроники.</value>
+  </data>
+  <data name="PleaseAuthorize" xml:space="preserve">
+    <value>ВОЙДИТЕ, ЧТОБЫ ПОЛУЧИТЬ ДОСТУП</value>
+  </data>
+  <data name="TechnologiesTittle" xml:space="preserve">
+    <value>Проходите тесты по :</value>
   </data>
 </root>

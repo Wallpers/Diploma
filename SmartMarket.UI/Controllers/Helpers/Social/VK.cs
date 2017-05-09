@@ -4,7 +4,7 @@ using System.Linq;
 using System.Web;
 using System.Web.Configuration;
 
-namespace SmartMarket.UI.Controllers.Helpers
+namespace SmartMarket.UI.Controllers.Helpers.Social
 {
     public static class VK
     {

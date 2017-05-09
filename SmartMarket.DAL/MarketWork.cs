@@ -14,9 +14,14 @@ namespace SmartMarket.DAL
 
         private IRepository<User> userRepository;
 
+        private IRepository<Role> roleRepository;
+
         // Lazy loadings for repositories/
         // Also we can use Lazy class.
         public IRepository<User> Users
             => userRepository ?? (userRepository = new Repository<User>());
-     }
+
+        public IRepository<Role> Roles
+            => roleRepository ?? (roleRepository = new Repository<Role>());
+    }
 }

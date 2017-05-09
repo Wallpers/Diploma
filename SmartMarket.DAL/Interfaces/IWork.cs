@@ -10,5 +10,6 @@ namespace SmartMarket.DAL.Interfaces
     public interface IWork
     {
         IRepository<User> Users { get; }
+        IRepository<Role> Roles { get; }
     }
 }

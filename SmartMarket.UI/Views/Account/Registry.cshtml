@@ -1,0 +1,75 @@
+﻿@model SmartMarket.BLL.ViewModels.RegistryModel
+
+@using (Ajax.BeginForm("Registry", "Account", new AjaxOptions { UpdateTargetId = "registry-block", OnSuccess = "delayClear()" }))
+{
+    <div class="status-message">
+        <div id="done_icon"></div>@Model.StatusMessage
+    </div>
+
+    <div class="profile-container-wrapper ">
+        <div class="profile-item">
+            <div class="profile-label">
+                @Html.LabelFor(model => model.Email)
+                <span class="required">*</span>
+            </div>
+            <div class="profile-textbox">
+                @Html.TextBoxFor(model => model.Email, new { @class = "text-box single-line" })
+            </div>
+        </div>
+    </div>
+    <div class="profile-container-wrapper">
+        <div class="profile-item">
+            <div class="profile-label">
+                @Html.LabelFor(model => model.Password)
+                <span class="required">*</span>
+            </div>
+            <div class="profile-textbox">
+                @Html.PasswordFor(model => model.Password, new { @class = "text-box single-line" })
+            </div>
+        </div>
+    </div>
+    <div class="profile-container-wrapper">
+        <div class="profile-item">
+            <div class="profile-label">
+                @Html.LabelFor(model => model.PasswordConfirm)
+                <span class="required">*</span>
+            </div>
+            <div class="profile-textbox">
+                @Html.PasswordFor(model => model.PasswordConfirm, new { @class = "text-box single-line" })
+            </div>
+        </div>
+    </div>
+    <div class="profile-container-wrapper">
+        <div class="profile-item">
+            <div class="profile-label">
+                @Html.LabelFor(model => model.Name)
+                <span class="required">*</span>
+            </div>
+            <div class="profile-textbox">
+                @Html.TextBoxFor(model => model.Name, new { @class = "text-box single-line" })
+            </div>
+        </div>
+    </div>
+    <div class="profile-container-wrapper">
+        <div class="profile-item">
+            <div class="profile-label">
+                @Html.LabelFor(model => model.LastName)
+                <span class="required">*</span>
+            </div>
+            <div class="profile-textbox">
+                @Html.TextBoxFor(model => model.LastName, new { @class = "text-box single-line" })
+            </div>
+        </div>
+    </div>
+    <div class="profile-container-wrapper">
+        <input type="submit" id="loginButton" value="@Model.RegistryTextButton" class="submit-button">
+    </div>
+    <div class="profile-container-wrapper">
+        <div class="profile-item">
+            <div class="profile-label">
+                @Html.ValidationSummary()
+            </div>
+        </div>
+    </div>
+}
+                        

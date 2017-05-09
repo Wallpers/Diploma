@@ -2,6 +2,7 @@
 using System;
 using System.Collections.Generic;
 using System.Data.Entity;
+using System.Data.Entity.Migrations;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
@@ -10,8 +11,14 @@ namespace SmartMarket.DAL
 {
     public class Repository<T> : IRepository<T> where T : class, IEntity
     {
-        MarketContext db;
-        DbSet<T> entities;
+        private MarketContext db;
+        private IDbSet<T> entities;
+
+        public Repository()
+        {
+            db = new MarketContext();
+            entities = db.Set<T>();
+        }
 
         public T Create(T entity)
         {
@@ -27,7 +34,7 @@ namespace SmartMarket.DAL
 
         public void Update(T entity)
         {
-            db.Entry(entity).State = EntityState.Modified;
+            db.Set<T>().AddOrUpdate(entity);
             db.SaveChanges();
         }
 

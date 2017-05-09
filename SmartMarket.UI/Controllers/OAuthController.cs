@@ -8,7 +8,7 @@ using System.Web;
 using System.Web.Mvc;
 using Newtonsoft.Json.Linq;
 using SmartMarket.UI.Controllers.Helpers.Extension;
-using Newtonsoft.Json;
+using SmartMarket.UI.Controllers.Helpers.Social;
 
 namespace SmartMarket.UI.Controllers
 {

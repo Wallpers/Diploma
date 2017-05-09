@@ -14,7 +14,7 @@ namespace SmartMarket.DAL
         public MarketContext() : base(Strings.Connection)
         { }
 
-        public new IDbSet<T> Set<T>() where T : class, IEntity
+        public new DbSet<T> Set<T>() where T : class, IEntity
         {
             return base.Set<T>();
         }
