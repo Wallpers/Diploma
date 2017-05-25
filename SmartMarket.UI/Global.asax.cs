@@ -18,8 +18,6 @@ namespace SmartMarket.UI
 {
     public class WebApiApplication : HttpApplication
     {
-        IUserManager userManager = new UserManager();
-
         protected void Application_Start()
         {
             AreaRegistration.RegisterAllAreas();

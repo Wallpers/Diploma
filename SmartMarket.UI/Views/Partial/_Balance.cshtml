@@ -1,0 +1,14 @@
+﻿@model IEnumerable<SmartMarket.BLL.ViewModels.DisplayBalanceModel>
+
+@if (Model != null)
+{
+    foreach (var item in Model)
+    {
+        <div class="user-bar">
+            <span>@item.Cash</span>
+            <a id="info-icon" title="Info" href="#"></a>
+            <a id="detach-balance-icon" title="Detach card" href="#"></a>
+        </div>
+    }
+}
+

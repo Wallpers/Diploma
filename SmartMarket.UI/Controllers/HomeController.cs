@@ -1,4 +1,6 @@
-﻿using SmartMarket.BLL.ViewModels;
+﻿using SmartMarket.BLL;
+using SmartMarket.BLL.Managers;
+using SmartMarket.BLL.ViewModels;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -9,11 +11,13 @@ namespace SmartMarket.UI.Controllers
 {
     public class HomeController : Controller
     {
-        public ActionResult Index()
-        { 
-            return View(new IndexModel());
+        IModelManager modelManager = new ModelManager();
+
+        public ActionResult Index(string message)
+        {
+            var model = modelManager.GetModel<IndexModel>();
+            model.StatusMessage = message;
+            return View(model);
         }
-
-
     }
 }

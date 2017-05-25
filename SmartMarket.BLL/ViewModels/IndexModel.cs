@@ -1,16 +1,10 @@
 ﻿using SmartMarket.BLL.Resources;
 using SmartMarket.BLL.Services;
-using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Reflection;
-using System.Resources;
-using System.Text;
-using System.Threading.Tasks;
+
 
 namespace SmartMarket.BLL.ViewModels
 {
-    public class IndexModel
+    public class IndexModel : LayoutModel
     { 
         public string PleaseAutorize
             => ResourceService.GetString(typeof(Strings), "PleaseAuthorize");
@@ -29,8 +23,6 @@ namespace SmartMarket.BLL.ViewModels
 
         public string NureEnding
             => ResourceService.GetString(typeof(Strings), "NureEnding");
-
-        public string StatusMessage { get; set; }
 
         public LoginModel LoginModel { get; set; }
 

@@ -4,12 +4,13 @@ using System.Collections.Generic;
 using System.Data.Entity;
 using System.Data.Entity.Migrations;
 using System.Linq;
+using System.Linq.Expressions;
 using System.Text;
 using System.Threading.Tasks;
 
 namespace SmartMarket.DAL
 {
-    public class Repository<T> : IRepository<T> where T : class, IEntity
+    public class Repository<T> : IDisposable, IRepository<T> where T : class, IEntity
     {
         private MarketContext db;
         private IDbSet<T> entities;
@@ -27,9 +28,10 @@ namespace SmartMarket.DAL
             return entity;
         }
 
-        public T Find(int id)
-        {
-            return entities.Find(id);
+        public T Find(int id, params Expression<Func<T, object>>[] includes)
+        { 
+            var query = Include(includes);
+            return query.FirstOrDefault(x => x.ID == id);
         }
 
         public void Update(T entity)
@@ -50,29 +52,74 @@ namespace SmartMarket.DAL
             db.SaveChanges();
         }
 
-        public IEnumerable<T> Take(int count)
+        public IEnumerable<T> Take(int count, params Expression<Func<T, object>>[] includes)
         {
-            return entities.Take(count).ToList();
+            var query = Include(includes);
+            return query.Take(count).ToList();
         }
 
-        public IEnumerable<T> Where(Func<T, bool> predicate)
+        public IEnumerable<T> Where(Func<T, bool> predicate, params Expression<Func<T, object>>[] includes)
         {
-            return entities.Where(predicate).ToList();
+            var query = Include(includes);
+            return query.Where(predicate).ToList();
         }
 
-        public T SinleOrDefault(Func<T, bool> predicate)
+        public T SinleOrDefault(Func<T, bool> predicate, params Expression<Func<T, object>>[] includes)
         {
-            return entities.SingleOrDefault(predicate);
+            var query = Include(includes);
+            return query.SingleOrDefault(predicate);
         }
 
-        public T FirstOrDefault(Func<T, bool> predicate)
+        public T FirstOrDefault(Func<T, bool> predicate, params Expression<Func<T, object>>[] includes)
         {
-            return entities.FirstOrDefault(predicate);
+            var query = Include(includes);
+            return query.FirstOrDefault(predicate);
         }
 
         public List<T> ToList()
         {
             return entities.ToList();
+        }
+
+        IQueryable<T> Include(params Expression<Func<T, object>>[] includes)
+        {
+            var query = entities.AsQueryable();
+            if (includes != null)
+            { 
+                foreach (var include in includes)
+                {
+                    query = query.Include(include);
+                }
+            }
+            return query;
+        }
+
+
+        bool disposed = false;
+
+        public void Dispose()
+        {
+            Dispose(true);
+            GC.SuppressFinalize(this);
+        }
+
+        ~Repository()
+        {
+            Dispose(false);
+        }
+
+        protected virtual void Dispose(bool disposing)
+        {
+            if (!disposed)
+            {
+                if (disposing)
+                {
+                    entities = null;
+                }
+
+                db.Dispose();
+                disposed = true;
+            }
         }
     }
 }

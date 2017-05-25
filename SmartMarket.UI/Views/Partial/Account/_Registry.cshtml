@@ -2,10 +2,12 @@
 
 @using (Ajax.BeginForm("Registry", "Account", new AjaxOptions { UpdateTargetId = "registry-block", OnSuccess = "delayClear()" }))
 {
-    <div class="status-message">
-        <div id="done_icon"></div>@Model.StatusMessage
-    </div>
-
+    if (Model.StatusMessage != null)
+    {
+        <div class="status-message">
+            <div id="done_icon"></div>@Model.StatusMessage
+        </div>
+    }
     <div class="profile-container-wrapper ">
         <div class="profile-item">
             <div class="profile-label">
@@ -68,6 +70,7 @@
         <div class="profile-item">
             <div class="profile-label">
                 @Html.ValidationSummary()
+                @Html.ValidationMessage("EmailAlreadyExists")
             </div>
         </div>
     </div>

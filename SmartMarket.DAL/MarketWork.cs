@@ -10,18 +10,36 @@ namespace SmartMarket.DAL
 {
     public class MarketWork : IWork
     {
-        private readonly MarketContext db = new MarketContext();
-
         private IRepository<User> userRepository;
+
+        private IRepository<Balance> balanceRepository;
+
+        private IRepository<RegistredCredential> registredCredentialRepository;
+
+        private IRepository<OAuthCredential> oAuthCredentialRepository;
 
         private IRepository<Role> roleRepository;
 
         // Lazy loadings for repositories/
         // Also we can use Lazy class.
         public IRepository<User> Users
-            => userRepository ?? (userRepository = new Repository<User>());
+           => userRepository ?? 
+            (userRepository = new Repository<User>());
+
+        public IRepository<Balance> Balances
+            => balanceRepository ?? 
+            (balanceRepository = new Repository<Balance>());
+
+        public IRepository<RegistredCredential> RegistredCredentials
+            => registredCredentialRepository ?? 
+            (registredCredentialRepository = new Repository<RegistredCredential>());
+
+        public IRepository<OAuthCredential> OAuthCredentials
+            => oAuthCredentialRepository ?? 
+            (oAuthCredentialRepository = new Repository<OAuthCredential>());
 
         public IRepository<Role> Roles
-            => roleRepository ?? (roleRepository = new Repository<Role>());
+            => roleRepository ?? 
+            (roleRepository = new Repository<Role>());
     }
 }

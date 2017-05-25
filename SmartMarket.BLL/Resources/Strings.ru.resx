@@ -147,4 +147,19 @@
   <data name="TechnologiesTittle" xml:space="preserve">
     <value>Проходите тесты по :</value>
   </data>
+  <data name="AllSettingSaved" xml:space="preserve">
+    <value>Все ваши настройки сохранены.</value>
+  </data>
+  <data name="EmailNotConfirmed" xml:space="preserve">
+    <value>Почта не подтверждена.</value>
+  </data>
+  <data name="CreateBalance" xml:space="preserve">
+    <value>Открыть счет</value>
+  </data>
+  <data name="AttachCard" xml:space="preserve">
+    <value>Привязать карту</value>
+  </data>
+  <data name="BalanceCreated" xml:space="preserve">
+    <value>Счет создан.</value>
+  </data>
 </root>

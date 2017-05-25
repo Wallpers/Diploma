@@ -19,9 +19,10 @@ namespace SmartMarket.DAL
             return base.Set<T>();
         }
 
+        public DbSet<Balance> Balances { get; set; }
         public DbSet<User> Users { get; set; }
+        public DbSet<OAuthCredential> OAuthCredentials { get; set; }
+        public DbSet<RegistredCredential> RegistredCredentials { get; set; }
         public DbSet<Role> Roles { get; set; }
-
-
     }
 }

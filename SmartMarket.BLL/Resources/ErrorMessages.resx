@@ -141,4 +141,7 @@
   <data name="RequiredTemplate" xml:space="preserve">
     <value>{0} is empty.</value>
   </data>
+  <data name="UserIsOAuth" xml:space="preserve">
+    <value>User registred through social networks.</value>
+  </data>
 </root>

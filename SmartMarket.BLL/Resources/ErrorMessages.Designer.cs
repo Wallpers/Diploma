@@ -131,5 +131,14 @@ namespace SmartMarket.BLL.Resources {
                 return ResourceManager.GetString("RequiredTemplate", resourceCulture);
             }
         }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to User registred through social networks..
+        /// </summary>
+        public static string UserIsOAuth {
+            get {
+                return ResourceManager.GetString("UserIsOAuth", resourceCulture);
+            }
+        }
     }
 }

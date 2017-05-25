@@ -29,3 +29,26 @@ function moveDiv() {
     $("#slider").toggleClass("slider-left");
     $("#slider").toggleClass("slider-right");
 };
+
+
+var modal = $("#myModal");
+
+var btn = $("#create-balance-icon");
+
+var span = $(".close")[0];
+
+btn.click(function () {
+    modal.css("display", "block");
+});
+
+span.click(function () {
+    modal.css("display", "none");
+});
+
+window.onclick = function (event) {
+    if (event.target == modal) {
+        modal.css("display", "none");
+    }
+}
+
+$(":input").inputmask();

@@ -4,9 +4,9 @@ using System.Linq;
 using System.Web;
 using System.Web.Configuration;
 
-namespace SmartMarket.UI.Controllers.Helpers.Social
+namespace SmartMarket.BLL.Social.VK
 {
-    public static class VK
+    public static class AuthParameters
     {
         // Documentation VK Developers.
         // https://vk.com/dev/authcode_flow_user

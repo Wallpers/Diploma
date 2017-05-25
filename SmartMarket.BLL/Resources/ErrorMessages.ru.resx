@@ -141,4 +141,7 @@
   <data name="RequiredTemplate" xml:space="preserve">
     <value>Поле "{0}" не заполнено.</value>
   </data>
+  <data name="UserIsOAuth" xml:space="preserve">
+    <value>Пользователь зарегистрирован через социальные сети.</value>
+  </data>
 </root>

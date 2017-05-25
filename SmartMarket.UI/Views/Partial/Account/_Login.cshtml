@@ -1,7 +1,13 @@
 ﻿@model SmartMarket.BLL.ViewModels.LoginModel
 
-@using (Ajax.BeginForm("Login", "Account", new AjaxOptions { UpdateTargetId = "login-block" }))
+@using (Ajax.BeginForm("Login", "Account", new AjaxOptions
+        {
+            HttpMethod = "Post",
+            InsertionMode = InsertionMode.Replace,
+            UpdateTargetId = "login-block"
+}))
 {
+
     <div class="profile-container-wrapper ">
         <div class="profile-item">
             <div class="profile-label">
@@ -20,14 +26,6 @@
             </div>
             <div class="profile-textbox">
                 @Html.PasswordFor(model => model.Password, new { @class = "text-box single-line" })
-            </div>
-        </div>
-        <div class="profile-item" style="display:none;">
-            <div class="profile-label">
-                @Html.LabelFor(model => model.RememberMe)
-                <div class="checkbox">
-                    @Html.CheckBoxFor(model => model.RememberMe)
-                </div>
             </div>
         </div>
     </div>

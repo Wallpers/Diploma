@@ -1,4 +1,7 @@
-﻿<!DOCTYPE html>
+﻿@using SmartMarket.BLL.ViewModels
+@model LayoutModel
+
+<!DOCTYPE html>
 <html>
 <head>
     <meta charset="utf-8" />
@@ -8,35 +11,55 @@
     @Scripts.Render("~/bundles/modernizr")
 </head>
 <body>
+    @if (Model.StatusMessage != null)
+    {
+        <div class="status-message z-highest">
+            <div id="done_icon"></div>@Model.StatusMessage
+        </div>
+    }
+
+    <div id="myModal" class="modal">
+        @Html.Partial("~/Views/Partial/_CreateBalance.cshtml", new CreateBalanceModel() { UserID = Model.UserID })
+    </div>
+
     <aside class="sidenav hide-menu z-high">
         <div class="menu-header">
-            <a href="#">
-                <span>SMART</span>
-                <img class="logo" src="~/Content/Images/lightbulb.png" />
-            </a>
+            <div class="logo">
+                <a href="#">
+                    <img src="~/Content/Images/Logo.jpg" />
+                </a>
+            </div>
+            <div class="bulb">
+                <a href="#">
+                    <img src="~/Content/Images/lightbulb.png" />
+                </a>
+            </div>
         </div>
         @if (User.Identity.IsAuthenticated)
         {
             <div class="user-bar">
-                <span>Pavel Kokorin</span>
+                <span>@Model.Name @Model.LastName</span>
+                <a id="attach-balance-icon" title="Attach card" href="#"></a>
                 <a id="profile-icon" title="Profile" href="~/Profile/Edit"></a>
                 <a id="logout-icon" title="Log out" href="~/Account/Logout"></a>
             </div>
+            if (Model.BalanceModels != null && Model.BalanceModels.Count() != 0)
+            {
+                @Html.Partial("~/Views/Partial/_Balance.cshtml", Model.BalanceModels)
+            }
+           
         }
         
         <div class="menu-content">
             <ul>
                 <li class="non-active-item">
-                    <a href="">Item 1</a>
+                    <a href="">Markets</a>
                 </li>
                 <li class="non-active-item">
-                    <a href="">Item 2</a>
+                    <a href="">Innovations</a>
                 </li>
                 <li class="non-active-item">
-                    <a href="">Item 3</a>
-                </li>
-                <li class="non-active-item">
-                    <a href="">Item 4</a>
+                    <a href="">Feedback</a>
                 </li>
             </ul>
         </div>    
@@ -57,8 +80,12 @@
     </div>
 
 
+    
     @Scripts.Render("~/bundles/jquery")
+    <script src="https://s3-us-west-2.amazonaws.com/s.cdpn.io/3/jquery.inputmask.bundle.js"></script>
     @Scripts.Render("~/bundles/bootstrap")
+    @Scripts.Render("~/bundles/script")
+    
     @RenderSection("scripts", required: false)
 </body>
 </html>

@@ -186,13 +186,10 @@
     <Compile Include="Areas\HelpPage\SampleGeneration\TextSample.cs" />
     <Compile Include="Areas\HelpPage\XmlDocumentationProvider.cs" />
     <Compile Include="Controllers\AccountController.cs" />
-    <Compile Include="Controllers\Helpers\Social\AccessVK.cs" />
     <Compile Include="Controllers\Helpers\Extension\Json.cs" />
-    <Compile Include="Controllers\Helpers\Social\SocialProviders.cs" />
-    <Compile Include="Controllers\Helpers\Social\UserVK.cs" />
-    <Compile Include="Controllers\Helpers\Social\VK.cs" />
     <Compile Include="Controllers\HomeController.cs" />
     <Compile Include="Controllers\OAuthController.cs" />
+    <Compile Include="Controllers\PrivateController.cs" />
     <Compile Include="Controllers\ProfileController.cs" />
     <Compile Include="Controllers\ValuesController.cs" />
     <Compile Include="Global.asax.cs">
@@ -204,20 +201,24 @@
     <Content Include="Areas\HelpPage\HelpPage.css" />
     <Content Include="Content\bootstrap.css" />
     <Content Include="Content\bootstrap.min.css" />
-    <Content Include="Content\Images\1.jpg" />
-    <Content Include="Content\Images\1.png" />
-    <Content Include="Content\Images\2.png" />
-    <Content Include="Content\Images\3.jpg" />
-    <Content Include="Content\Images\4.jpg" />
+    <Content Include="Content\Images\01.jpg" />
+    <Content Include="Content\Images\attach_balance.png" />
+    <Content Include="Content\Images\attach_balance_hover.png" />
     <Content Include="Content\Images\Auth\fb_icons.png" />
     <Content Include="Content\Images\Auth\ln_icons.png" />
     <Content Include="Content\Images\Auth\vk_icons.png" />
-    <Content Include="Content\Images\bg-main.jpg" />
+    <Content Include="Content\Images\coin.png" />
+    <Content Include="Content\Images\coin_hover.png" />
+    <Content Include="Content\Images\detach_balance.png" />
+    <Content Include="Content\Images\detach_balance_hover.png" />
     <Content Include="Content\Images\done_icon.png" />
     <Content Include="Content\Images\emblem.jpg" />
     <Content Include="Content\Images\expand.png" />
     <Content Include="Content\Images\expand_inversed.png" />
+    <Content Include="Content\Images\information.png" />
+    <Content Include="Content\Images\information_hover.png" />
     <Content Include="Content\Images\lightbulb.png" />
+    <Content Include="Content\Images\Logo.jpg" />
     <Content Include="Content\Images\user-bar.png" />
     <Content Include="favicon.ico" />
     <Content Include="fonts\glyphicons-halflings-regular.svg" />
@@ -256,6 +257,11 @@
     <Content Include="Scripts\jquery-1.10.2.min.js" />
     <Content Include="Scripts\jquery.unobtrusive-ajax.js" />
     <Content Include="Scripts\jquery.unobtrusive-ajax.min.js" />
+    <None Include="Scripts\jquery.validate-vsdoc.js" />
+    <Content Include="Scripts\jquery.validate.js" />
+    <Content Include="Scripts\jquery.validate.min.js" />
+    <Content Include="Scripts\jquery.validate.unobtrusive.js" />
+    <Content Include="Scripts\jquery.validate.unobtrusive.min.js" />
     <Content Include="Scripts\modernizr-2.6.2.js" />
     <Content Include="Scripts\respond.js" />
     <Content Include="Scripts\respond.min.js" />
@@ -277,12 +283,15 @@
     <Content Include="Views\Shared\Error.cshtml" />
     <Content Include="Views\Shared\_Layout.cshtml" />
     <Content Include="Views\Profile\Edit.cshtml" />
-    <Content Include="Views\Account\Login.cshtml" />
-    <Content Include="Views\Account\Registry.cshtml" />
+    <Content Include="Views\Partial\Account\_Login.cshtml" />
+    <Content Include="Views\Partial\Account\_Registry.cshtml" />
+    <Content Include="Views\Partial\_Balance.cshtml" />
+    <Content Include="Views\Partial\_CreateBalance.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="bin\" />
     <Folder Include="Views\OAuth\" />
+    <Folder Include="Views\Private\" />
   </ItemGroup>
   <ItemGroup>
     <Content Include="fonts\glyphicons-halflings-regular.woff" />
@@ -297,13 +306,13 @@
     <Content Include="packages.config" />
   </ItemGroup>
   <ItemGroup>
-    <Content Include="Scripts\jquery-1.10.2.min.map" />
-  </ItemGroup>
-  <ItemGroup>
     <ProjectReference Include="..\SmartMarket.BLL\SmartMarket.BLL.csproj">
       <Project>{f72420ac-6623-4d73-abf4-acc678c88906}</Project>
       <Name>SmartMarket.BLL</Name>
     </ProjectReference>
+  </ItemGroup>
+  <ItemGroup>
+    <Content Include="Scripts\jquery-1.10.2.min.map" />
   </ItemGroup>
   <PropertyGroup>
     <VisualStudioVersion Condition="'$(VisualStudioVersion)' == ''">10.0</VisualStudioVersion>

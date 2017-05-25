@@ -61,11 +61,47 @@ namespace SmartMarket.BLL.Resources {
         }
         
         /// <summary>
+        ///   Looks up a localized string similar to All your settings is saved..
+        /// </summary>
+        public static string AllSettingSaved {
+            get {
+                return ResourceManager.GetString("AllSettingSaved", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Attach  card.
+        /// </summary>
+        public static string AttachCard {
+            get {
+                return ResourceManager.GetString("AttachCard", resourceCulture);
+            }
+        }
+        
+        /// <summary>
         ///   Looks up a localized string similar to YOU&apos;RE IS AUTHINFICATED..
         /// </summary>
         public static string Authorized {
             get {
                 return ResourceManager.GetString("Authorized", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Balance was created..
+        /// </summary>
+        public static string BalanceCreated {
+            get {
+                return ResourceManager.GetString("BalanceCreated", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Create balance.
+        /// </summary>
+        public static string CreateBalance {
+            get {
+                return ResourceManager.GetString("CreateBalance", resourceCulture);
             }
         }
         
@@ -84,6 +120,15 @@ namespace SmartMarket.BLL.Resources {
         public static string EmailConfirmHeader {
             get {
                 return ResourceManager.GetString("EmailConfirmHeader", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Email is not confirmed.
+        /// </summary>
+        public static string EmailNotConfirmed {
+            get {
+                return ResourceManager.GetString("EmailNotConfirmed", resourceCulture);
             }
         }
         
@@ -138,6 +183,15 @@ namespace SmartMarket.BLL.Resources {
         public static string PleaseAuthorize {
             get {
                 return ResourceManager.GetString("PleaseAuthorize", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to .
+        /// </summary>
+        public static string String {
+            get {
+                return ResourceManager.GetString("String", resourceCulture);
             }
         }
         

@@ -18,7 +18,5 @@ namespace SmartMarket.DAL.Entities
         [StringLength(50)]
         [Index(IsUnique = true)]
         public string Name { get; set; }
-
-        public virtual ICollection<User> Users { get; set; }
     }
 }

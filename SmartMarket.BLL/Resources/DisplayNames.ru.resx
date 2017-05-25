@@ -117,6 +117,18 @@
   <resheader name="writer">
     <value>System.Resources.ResXResourceWriter, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
   </resheader>
+  <data name="CardNumber" xml:space="preserve">
+    <value>Номер карты</value>
+  </data>
+  <data name="Cash" xml:space="preserve">
+    <value>Баланс</value>
+  </data>
+  <data name="Country" xml:space="preserve">
+    <value>Страна</value>
+  </data>
+  <data name="Currency" xml:space="preserve">
+    <value>Валюта</value>
+  </data>
   <data name="Email" xml:space="preserve">
     <value>Почта</value>
   </data>
@@ -125,6 +137,12 @@
   </data>
   <data name="LoginTextButton" xml:space="preserve">
     <value>Войти</value>
+  </data>
+  <data name="MerchantID" xml:space="preserve">
+    <value>ID Мерчанта</value>
+  </data>
+  <data name="MerchantPassword" xml:space="preserve">
+    <value>Пароль мерчанта</value>
   </data>
   <data name="Name" xml:space="preserve">
     <value>Имя</value>

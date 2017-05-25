@@ -6,13 +6,6 @@
     var loginModel = Model.LoginModel ?? new LoginModel();
     var registryModel = Model.RegistryModel ?? new RegistryModel();
 }
-@if (Model.StatusMessage != null)
-{
-    <div class="status-message z-highest">
-        <div id="done_icon"></div>@Model.StatusMessage
-    </div>
-}
-
 
 <div id="first-row" class="row">
     <div id="first-first" >
@@ -50,11 +43,11 @@
         <div id="second-first">
             <div class="absolute left-top">
                 <div id="login-block" class="z-lowest">
-                    @Html.Partial("~/Views/Account/Login.cshtml", loginModel)
+                    @Html.Partial("~/Views/Partial/Account/_Login.cshtml", loginModel)
                 </div>
                 <div id="slider" onclick="moveDiv()" class="slider slider-left"></div>
                 <div id="registry-block" class="z-lowest">
-                    @Html.Partial("~/Views/Account/Registry.cshtml", registryModel)
+                    @Html.Partial("~/Views/Partial/Account/_Registry.cshtml", registryModel)
                 </div>
             </div>
             <div onclick="moveDiv()" id="description-block" class="absolute right-top z-low">

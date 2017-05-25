@@ -1,24 +1,25 @@
 ﻿@using SmartMarket.BLL.ViewModels
-@model UserModel
+@model EditModel
 
 @{
-    ViewBag.Path = "PROFILE > Edit";
     Layout = "~/Views/Shared/_Layout.cshtml";
+}
 
-    var EmailConfirmed = (Model.IsEmailConfirmed) ? "True" : "False";
+@if (Model.StatusMessage != null)
+{
+    <div class="status-message">
+        <div id="done_icon"></div>@Model.StatusMessage
+    </div>
 }
 
 <div class="edit-conteiner">
     <form action="~/Profile/Edit" id="profileForm" method="post">
-        <input id="ID" name="ID" type="hidden" value="@Model.ID">      
-        
-        <input id="IsEmailConfirmed" name="IsEmailConfirmed" type="hidden" value="@EmailConfirmed">
-        <input id="PasswordHash" name="PasswordHash" type="hidden" value="@Model.PasswordHash">
+        <input id="ID" name="ID" type="hidden" value="@Model.ID">     
         <br>
         <div class="profile-container-wrapper ">
             <div class="profile-item">
                 <div class="profile-label">
-                    NAME*:
+                    @Html.LabelFor(model => model.Name)
                 </div>
                 <div class="profile-textbox">
                     <input class="text-box single-line" id="Name" name="Name" type="text" value="@Model.Name">
@@ -29,7 +30,7 @@
         <div class="profile-container-wrapper ">
             <div class="profile-item">
                 <div class="profile-label">
-                    LASTNAME*:
+                    @Html.LabelFor(model => model.LastName)
                 </div>
                 <div class="profile-textbox">
                     <input class="text-box single-line" id="LastName" name="LastName" type="text" value="@Model.LastName">
@@ -40,7 +41,7 @@
         <div class="profile-container-wrapper ">
             <div class="profile-item">
                 <div class="profile-label">
-                    EMAIL*:
+                    @Html.LabelFor(model => model.Email)
                 </div>
                 <div class="profile-textbox">
                     <input class="text-box single-line" id="Email" name="Email" type="text" value="@Model.Email">
@@ -49,18 +50,15 @@
         </div>
 
         <div class="profile-container-wrapper">
-            <div class="profile-item">
-                <div class="profile-label">
-                    PASSWORD*: <span class="required">*</span>
-                </div>
-                <div class="profile-textbox">
-                    <input class="text-box single-line" data-val="true" id="Password" name="Password" type="password" value="@Model.Password">
-                </div>
-            </div>
+            <input type="submit" id="submitButton" value="Save" class="submit-button">
         </div>
 
         <div class="profile-container-wrapper">
-            <input type="submit" id="submitButton" value="Save" class="submit-button">
+            <div class="profile-item">
+                <div class="profile-label">
+                    @Html.ValidationSummary()
+                </div>
+            </div>
         </div>
     </form>
 

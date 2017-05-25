@@ -56,13 +56,12 @@ body
     .sidenav .menu-header
     {
         height: 80px;
-        padding-left: 80px;
         background-color: #000000;
     }
 
     .sidenav .menu-content
     {
-        padding: 17px 17px 0 20px;
+        padding: 30px;
         overflow-y: auto;
         height: 100%;
         background-color: #f2f2f2;
@@ -82,7 +81,7 @@ body
 
             .sidenav .menu-content ul a
             {
-                font-size: 16px;
+                font-size: 20px;
                 margin-bottom: 3px;
                 display: block;
                 padding-left: 40px;
@@ -141,8 +140,17 @@ a
 
 .logo
 {
-    height: 127px;
-    float: right;
+    height: 80px;
+    width:233px;
+    overflow:visible;
+    float:left;
+}
+.bulb
+{
+    width: 50px;
+    height: 80px;
+    overflow: visible;
+    float: left;
 }
 
 .user-bar
@@ -156,7 +164,7 @@ a
 
     .user-bar span
     {
-        width: 65%;
+        width: 45%;
         display: inline-block;
         text-align: center;
         font-family: OpenSans-Light;
@@ -195,6 +203,61 @@ a
         background-position: -75px 0;
     }
 
+/*MUST Refactoring*/
+#attach-balance-icon
+{
+    display: inline-block;
+    width: 24px;
+    height: 24px;
+    margin: 15px;
+    background: url(../Content/Images/attach_balance.png);
+}
+
+    #attach-balance-icon:hover
+    {
+        background: url(../Content/Images/attach_balance_hover.png);
+    }
+
+#detach-balance-icon
+{
+    display: inline-block;
+    width: 24px;
+    height: 24px;
+    margin: 15px 0;
+    background: url(../Content/Images/detach_balance.png);
+}
+
+    #detach-balance-icon:hover
+    {
+        background: url(../Content/Images/detach_balance_hover.png);
+    }
+#balance-icon
+{
+    display: inline-block;
+    width: 24px;
+    height: 24px;
+    margin: 15px;
+    background: url(../Content/Images/coins.png);
+}
+
+    #balance-icon:hover
+    {
+        background: url(../Content/Images/coins_hover.png);
+    }
+
+#info-icon
+{
+    display: inline-block;
+    width: 24px;
+    height: 24px;
+    margin: 15px;
+    background: url('../Content/Images/information.png');
+}
+
+    #info-icon:hover
+    {
+        background: url('../Content/Images/information_hover.png');
+    }
 
 
 
@@ -239,11 +302,6 @@ a
 {
     width: 50%;
     height: 480px;
-}
-
-#second-row
-{
-    
 }
 
 #second-first
@@ -536,6 +594,7 @@ p
     display: block;
 }
 
+/* MUST embed refactored*/
 .submit-button
 {
     border-radius: 25px;
@@ -551,7 +610,6 @@ p
     background: none;
     margin: 30px 100px 0 35px;
 }
-
     .submit-button:hover
     {
         background-color: #5886F9;
@@ -560,6 +618,33 @@ p
     }
 
     .submit-button:focus
+    {
+        outline: none;
+    }
+
+.attach-button
+{
+    border-radius: 25px;
+    width: 200px;
+    background-color: #999999;
+    line-height: 50px;
+    border: solid 2px #999999;
+    font-size: 18px;
+    Font-family: OpenSans-Semibold, sans-serif;
+    color: #999999;
+    text-align: center;
+    cursor: pointer;
+    background: none;
+    margin: 30px 100px 0 35px;
+}
+    .attach-button:hover
+    {
+        background-color: #5886F9;
+        border-color: #5886F9;
+        color: #f9f9f9;
+    }
+
+    .attach-button:focus
     {
         outline: none;
     }
@@ -635,6 +720,50 @@ p
     margin-left: 34px;
     background: url(../Content/Images/done_icon.png) no-repeat;
 }
+
+/* The Modal (background) */
+.modal
+{
+    display: none; /* Hidden by default */
+    position: fixed; /* Stay in place */
+    z-index: 1; /* Sit on top */
+    left: 0;
+    top: 0;
+    width: 100%; /* Full width */
+    height: 100%; /* Full height */
+    overflow: auto; /* Enable scroll if needed */
+    background-color: rgb(0,0,0); /* Fallback color */
+    background-color: rgba(0,0,0,0.4); /* Black w/ opacity */
+}
+
+/* Modal Content/Box */
+.modal-content
+{
+    background-color: #fefefe;
+    margin-top: calc(5% + 80px);
+    margin-left: calc(5% + 300px);
+    padding: 20px;
+    border: 1px solid #888;
+    width: 400px; /* Could be more or less, depending on screen size */
+    height: 350px;
+}
+
+/* The Close Button */
+.close
+{
+    color: #aaa;
+    float: right;
+    font-size: 28px;
+    font-weight: bold;
+}
+
+    .close:hover,
+    .close:focus
+    {
+        color: black;
+        text-decoration: none;
+        cursor: pointer;
+    }
 
 @media (max-width: 1200px)
 {

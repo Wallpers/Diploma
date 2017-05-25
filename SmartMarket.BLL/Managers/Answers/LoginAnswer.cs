@@ -9,8 +9,9 @@ namespace SmartMarket.BLL.Managers.Answers
     public enum LoginAnswer
     {
         EmailNotFound,
+        UserIsOAuth,
         PasswordWrong,
         EmailNotConfirmed,
-        Access
+        Access 
     }
 }

@@ -9,10 +9,10 @@ using System.Threading.Tasks;
 
 namespace SmartMarket.DAL.Entities
 {
-    //TODO make unique email.
     public class User : IEntity
     {
         [Key]
+        [DatabaseGenerated(DatabaseGeneratedOption.Identity)]
         public int ID { get; set; }  
         
         [Required]
@@ -28,14 +28,10 @@ namespace SmartMarket.DAL.Entities
         [Index(IsUnique = true)]
         public string Email { get; set; }
 
-        [Required]
-        [MaxLength(64)]
-        public string PasswordHash { get; set; }
+        public OAuthCredential OAuthCredential { get; set; }
 
-        [Required]
-        public bool IsEmailConfirmed { get; set; }
+        public RegistredCredential RegistredCredential { get; set; }
 
-
-        public virtual ICollection<Role> Roles { get; set; }
+        public List<Balance> Balances { get; set; }
     }
 }

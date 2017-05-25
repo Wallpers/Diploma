@@ -147,4 +147,22 @@
   <data name="TechnologiesTittle" xml:space="preserve">
     <value>Take tests in:</value>
   </data>
+  <data name="AllSettingSaved" xml:space="preserve">
+    <value>All your settings is saved.</value>
+  </data>
+  <data name="EmailNotConfirmed" xml:space="preserve">
+    <value>Email is not confirmed</value>
+  </data>
+  <data name="String" xml:space="preserve">
+    <value />
+  </data>
+  <data name="CreateBalance" xml:space="preserve">
+    <value>Create balance</value>
+  </data>
+  <data name="AttachCard" xml:space="preserve">
+    <value>Attach  card</value>
+  </data>
+  <data name="BalanceCreated" xml:space="preserve">
+    <value>Balance was created.</value>
+  </data>
 </root>

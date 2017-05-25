@@ -61,6 +61,42 @@ namespace SmartMarket.BLL.Resources {
         }
         
         /// <summary>
+        ///   Looks up a localized string similar to Card number.
+        /// </summary>
+        public static string CardNumber {
+            get {
+                return ResourceManager.GetString("CardNumber", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Balance.
+        /// </summary>
+        public static string Cash {
+            get {
+                return ResourceManager.GetString("Cash", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Country.
+        /// </summary>
+        public static string Country {
+            get {
+                return ResourceManager.GetString("Country", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Currency.
+        /// </summary>
+        public static string Currency {
+            get {
+                return ResourceManager.GetString("Currency", resourceCulture);
+            }
+        }
+        
+        /// <summary>
         ///   Looks up a localized string similar to Email.
         /// </summary>
         public static string Email {
@@ -84,6 +120,24 @@ namespace SmartMarket.BLL.Resources {
         public static string LoginTextButton {
             get {
                 return ResourceManager.GetString("LoginTextButton", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Merchant id.
+        /// </summary>
+        public static string MerchantID {
+            get {
+                return ResourceManager.GetString("MerchantID", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Merchant password.
+        /// </summary>
+        public static string MerchantPassword {
+            get {
+                return ResourceManager.GetString("MerchantPassword", resourceCulture);
             }
         }
         
