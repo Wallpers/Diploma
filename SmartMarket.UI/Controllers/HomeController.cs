@@ -15,7 +15,7 @@ namespace SmartMarket.UI.Controllers
 
         public ActionResult Index(string message)
         {
-            var model = modelManager.GetModel<IndexModel>();
+            var model = modelManager.GetModelForUser<IndexModel>();
             model.StatusMessage = message;
             return View(model);
         }

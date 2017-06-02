@@ -11,6 +11,7 @@
     <AssemblyName>SmartMarket.BLL</AssemblyName>
     <TargetFrameworkVersion>v4.5.2</TargetFrameworkVersion>
     <FileAlignment>512</FileAlignment>
+    <TargetFrameworkProfile />
   </PropertyGroup>
   <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|AnyCPU' ">
     <DebugSymbols>true</DebugSymbols>
@@ -46,8 +47,23 @@
     <Reference Include="System.ComponentModel.DataAnnotations" />
     <Reference Include="System.Core" />
     <Reference Include="System.Web" />
+    <Reference Include="System.Web.Helpers, Version=3.0.0.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL">
+      <HintPath>..\packages\Microsoft.AspNet.WebPages.3.2.3\lib\net45\System.Web.Helpers.dll</HintPath>
+    </Reference>
     <Reference Include="System.Web.Mvc, Version=5.2.3.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL">
       <HintPath>..\packages\Microsoft.AspNet.Mvc.5.2.3\lib\net45\System.Web.Mvc.dll</HintPath>
+    </Reference>
+    <Reference Include="System.Web.Razor, Version=3.0.0.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL">
+      <HintPath>..\packages\Microsoft.AspNet.Razor.3.2.3\lib\net45\System.Web.Razor.dll</HintPath>
+    </Reference>
+    <Reference Include="System.Web.WebPages, Version=3.0.0.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL">
+      <HintPath>..\packages\Microsoft.AspNet.WebPages.3.2.3\lib\net45\System.Web.WebPages.dll</HintPath>
+    </Reference>
+    <Reference Include="System.Web.WebPages.Deployment, Version=3.0.0.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL">
+      <HintPath>..\packages\Microsoft.AspNet.WebPages.3.2.3\lib\net45\System.Web.WebPages.Deployment.dll</HintPath>
+    </Reference>
+    <Reference Include="System.Web.WebPages.Razor, Version=3.0.0.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL">
+      <HintPath>..\packages\Microsoft.AspNet.WebPages.3.2.3\lib\net45\System.Web.WebPages.Razor.dll</HintPath>
     </Reference>
     <Reference Include="System.Xml.Linq" />
     <Reference Include="System.Data.DataSetExtensions" />
@@ -58,14 +74,20 @@
   </ItemGroup>
   <ItemGroup>
     <Compile Include="Bank\Private24.cs" />
+    <Compile Include="IBalanceManager.cs" />
     <Compile Include="IModelManager.cs" />
+    <Compile Include="IPaymentManager.cs" />
     <Compile Include="IPrivateManager.cs" />
     <Compile Include="IUserManager.cs" />
+    <Compile Include="Managers\BalanceManager.cs" />
     <Compile Include="Managers\ModelManager.cs" />
+    <Compile Include="Managers\PaymentManager.cs" />
     <Compile Include="Managers\PrivateManager.cs" />
     <Compile Include="Managers\UserManager.cs" />
+    <Compile Include="ViewModels\BalanceTransfer.cs" />
     <Compile Include="ViewModels\Country.cs" />
-    <Compile Include="ViewModels\CreateBalanceModel.cs" />
+    <Compile Include="ViewModels\AttachBalanceModel.cs" />
+    <Compile Include="ViewModels\DetachBalanceModel.cs" />
     <Compile Include="ViewModels\DisplayBalanceModel.cs" />
     <Compile Include="ViewModels\EditModel.cs" />
     <Compile Include="ViewModels\OAuthModel.cs" />
@@ -111,10 +133,13 @@
     <Compile Include="ViewModels\IndexModel.cs" />
     <Compile Include="ViewModels\LoginModel.cs" />
     <Compile Include="ViewModels\LayoutModel.cs" />
+    <Compile Include="ViewModels\PaymentModel.cs" />
     <Compile Include="ViewModels\RegistryModel.cs" />
   </ItemGroup>
   <ItemGroup>
-    <None Include="App.config" />
+    <None Include="App.config">
+      <SubType>Designer</SubType>
+    </None>
     <None Include="packages.config" />
   </ItemGroup>
   <ItemGroup>

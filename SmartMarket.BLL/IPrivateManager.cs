@@ -9,6 +9,6 @@ namespace SmartMarket.BLL
 {
     public interface IPrivateManager
     {
-        int CreateBalance(CreateBalanceModel model, decimal cash);
+        int CreateBalance(AttachBalanceModel model);
     }
 }

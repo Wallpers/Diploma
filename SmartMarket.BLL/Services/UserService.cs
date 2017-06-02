@@ -32,7 +32,9 @@ namespace SmartMarket.BLL.Services
 
         public static void Refresh(User user)
         {
-            HttpContext.Current.Session[Key] = user;
+
+            if (HttpContext.Current.Session != null)
+                HttpContext.Current.Session[Key] = user;
         }
 
         public static User Refresh()

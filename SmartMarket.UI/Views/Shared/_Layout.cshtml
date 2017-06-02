@@ -17,9 +17,11 @@
             <div id="done_icon"></div>@Model.StatusMessage
         </div>
     }
-
-    <div id="myModal" class="modal">
-        @Html.Partial("~/Views/Partial/_CreateBalance.cshtml", new CreateBalanceModel() { UserID = Model.UserID })
+    <div id="detach-modal" class="modal z-most-highest">
+        @Html.Partial("~/Views/Partial/_DetachBalance.cshtml", new DetachBalanceModel())
+    </div>
+    <div id="attach-modal" class="modal z-most-highest">
+        @Html.Partial("~/Views/Partial/_AttachBalance.cshtml", new AttachBalanceModel() { UserID = Model.UserID })
     </div>
 
     <aside class="sidenav hide-menu z-high">

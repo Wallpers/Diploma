@@ -19,6 +19,7 @@ namespace SmartMarket.UI.Controllers
     public class PrivateController : Controller
     {
         IPrivateManager privateManager = new PrivateManager();
+        IModelManager modelManager = new ModelManager();
 
         private HttpClient client = new HttpClient();
 
@@ -60,7 +61,7 @@ namespace SmartMarket.UI.Controllers
             return RedirectToAction("Index", "Home");
         }
 
-        public ActionResult CreateBalance(CreateBalanceModel model)
+        public ActionResult CreateBalance(AttachBalanceModel model)
         {
             model.CardNumber = GetDigits(model.CardNumber);
 
@@ -90,18 +91,31 @@ namespace SmartMarket.UI.Controllers
                     XmlDocument xml = new XmlDocument();
                     xml.LoadXml(result);
 
-                    var balance = Convert.ToDecimal(xml.GetElementsByTagName("balance").Item(0).InnerText, CultureInfo.InvariantCulture);
+                    model.Balance = Convert.ToDecimal(xml.GetElementsByTagName("balance").Item(0).InnerText, CultureInfo.InvariantCulture);
                     //var currency = xml.GetElementsByTagName("currency").Item(0).InnerText;
 
-                    privateManager.CreateBalance(model, balance);
+                    privateManager.CreateBalance(model);
 
                     var message = ResourceService.GetString(typeof(Strings), "BalanceCreated");
                     return JavaScript($"window.location = '{Url.Action("Index", "Home", new { message = message })}'");
                 }
-                return PartialView("~/Views/Partial/_CreateBalance.cshtml", model);
+                return PartialView("~/Views/Partial/_AttachBalance.cshtml", model);
             }
 
             return RedirectToAction("Index", "Home");
+        }
+
+        public ActionResult DetachBalance(int? id)
+        {
+            if (Request.IsAjaxRequest())
+            {
+                var model = new DetachBalanceModel();
+                if (id != null)
+                    model = modelManager.GetModelForBalance<DetachBalanceModel>(id.Value);
+                return PartialView("~/Views/Partial/_DetachBalance.cshtml", model);
+            }
+
+            return RedirectToAction("Index", "Home", new { message = "Some error" });
         }
 
             private string GenerateSign(string data, string password)

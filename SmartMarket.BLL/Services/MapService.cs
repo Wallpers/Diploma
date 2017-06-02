@@ -27,7 +27,9 @@ namespace SmartMarket.BLL.Services
                 config.CreateMap<User, IndexModel>().ConvertUsing<UserIndexModelConverter>();
                 config.CreateMap<Balance, DisplayBalanceModel>().ConvertUsing<BalanceDisplayBalanceModelConverter>();
 
-                config.CreateMap<CreateBalanceModel, Balance>().ConvertUsing<CreateBalanceModelBalanceConverter>();
+                config.CreateMap<AttachBalanceModel, Balance>().ConvertUsing<AttachBalanceModelBalanceConverter>();
+                config.CreateMap<Balance, DetachBalanceModel>().ConvertUsing<BalanceDetachBalanceModel>();
+
 
             });
         }
@@ -184,6 +186,12 @@ namespace SmartMarket.BLL.Services
                 if (source.Email != null)
                     destination.Email = source.Email;
 
+                var balanceModels = new List<DisplayBalanceModel>();
+                foreach (var balance in source.Balances)
+                {
+                    balanceModels.Add(Mapper.Map<Balance, DisplayBalanceModel>(balance));
+                }
+                destination.BalanceModels = balanceModels;
 
                 return destination;
             }
@@ -199,7 +207,12 @@ namespace SmartMarket.BLL.Services
                 if (destination == null)
                     destination = new DisplayBalanceModel();
 
-                destination.Cash = source.Cash.ToString("C");
+                if (source.ID != 0)
+                    destination.ID = source.ID;
+
+                if (source.Cash != 0)
+                    destination.Cash = source.Cash.ToString("C");
+
                 destination.Currency = source.Currency.ToString().ToLower();
 
                 return destination;
@@ -239,9 +252,9 @@ namespace SmartMarket.BLL.Services
             }
         }
 
-        class CreateBalanceModelBalanceConverter : ITypeConverter<CreateBalanceModel, Balance>
+        class AttachBalanceModelBalanceConverter : ITypeConverter<AttachBalanceModel, Balance>
         {
-            public Balance Convert(CreateBalanceModel source, Balance destination, ResolutionContext context)
+            public Balance Convert(AttachBalanceModel source, Balance destination, ResolutionContext context)
             {
                 if (source == null)
                     return null;
@@ -258,10 +271,13 @@ namespace SmartMarket.BLL.Services
                 if (source.MerchantPassword != null)
                     destination.MerchantPassword = source.MerchantPassword;
 
-                if (source.CardNumber == null)
+                if (source.CardNumber != null)
                     destination.CardNumber = source.CardNumber;
 
-                switch(source.Country)
+                if (source.Balance != 0)
+                    destination.Cash = source.Balance;
+
+                switch (source.Country)
                 {
                     case "UA":
                         destination.Currency = Currency.UA;
@@ -277,6 +293,34 @@ namespace SmartMarket.BLL.Services
                 return destination;
             }
         }
-    }
 
+        class BalanceDetachBalanceModel : ITypeConverter<Balance, DetachBalanceModel>
+        {
+            public DetachBalanceModel Convert(Balance source, DetachBalanceModel destination, ResolutionContext context)
+            {
+                if (source == null)
+                    return null;
+
+                if (destination == null)
+                    destination = new DetachBalanceModel();
+
+                if(source.ID != 0)
+                    destination.BalanceID = source.ID;
+
+                if (source.CardNumber != null)
+                {
+                    destination.CardNumber = source.CardNumber;
+                    destination.CardNumber = destination.CardNumber.Insert(4, "-");
+                    destination.CardNumber = destination.CardNumber.Insert(9, "-");
+                    destination.CardNumber = destination.CardNumber.Insert(14, "-");
+                }
+
+                if (source.Cash != 0)
+                    destination.Balance = source.Cash.ToString("C");
+
+
+                return destination;
+            }
+        }
+    }
 }

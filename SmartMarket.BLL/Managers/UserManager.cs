@@ -109,5 +109,11 @@ namespace SmartMarket.BLL.Managers
         {
             return work.Users.FirstOrDefault(predicate, x => x.Balances);
         }
+
+        public int GetUserId(string email)
+        {
+            var user = work.Users.FirstOrDefault(entity => entity.Email == email);
+            return user.ID;
+        }
     }
 }

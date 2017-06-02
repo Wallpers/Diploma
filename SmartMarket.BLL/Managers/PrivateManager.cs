@@ -10,10 +10,9 @@ namespace SmartMarket.BLL.Managers
     public class PrivateManager : IPrivateManager
     {
         IWork work = new MarketWork();
-        public int CreateBalance(CreateBalanceModel model, decimal cash)
+        public int CreateBalance(AttachBalanceModel model)
         {
-            var balance = Mapper.Map<CreateBalanceModel, Balance>(model);
-            balance.Cash = cash;
+            var balance = Mapper.Map<AttachBalanceModel, Balance>(model);
             balance = work.Balances.Create(balance);
             UserService.Refresh();
             return balance.ID;

@@ -30,25 +30,39 @@ function moveDiv() {
     $("#slider").toggleClass("slider-right");
 };
 
+var detachModal = $("#detach-modal");
+var attachModal = $("#attach-modal");
 
-var modal = $("#myModal");
+var attachButton = $("#attach-balance-icon");
+var detachButton = $(".detach-balance-icon");
 
-var btn = $("#create-balance-icon");
+var closeAttach = $("#close-attach-balance");
+var closeDetach = $("#close-detach-balance");
 
-var span = $(".close")[0];
-
-btn.click(function () {
-    modal.css("display", "block");
+attachButton.click(function () {
+    attachModal.css("display", "block");
 });
 
-span.click(function () {
-    modal.css("display", "none");
+detachButton.click(function () {
+    detachModal.css("display", "block");
 });
 
-window.onclick = function (event) {
-    if (event.target == modal) {
-        modal.css("display", "none");
-    }
-}
+// Because span addin dynamicaly, just click() doesn't work.
+$(document).on('click', '#close-attach-balance', function ()
+{
+    attachModal.css("display", "none");
+});
+
+$(document).on('click', '#close-detach-balance', function ()
+{
+    detachModal.css("display", "none");
+});
+
+//window.onclick = function (event) {
+//    if (event.target == modal) {
+//        detachModal.css("display", "none");
+//        attachModal.css("display", "none");
+//    }
+//}
 
 $(":input").inputmask();

@@ -9,7 +9,7 @@ using System;
 
 namespace SmartMarket.BLL.ViewModels
 {
-    public class CreateBalanceModel
+    public class AttachBalanceModel
     {
         [Required]
         public int UserID { get; set; }
@@ -32,6 +32,8 @@ namespace SmartMarket.BLL.ViewModels
         [Display(ResourceType = typeof(DisplayNames), Name = "MerchantPassword")]
         public string MerchantPassword
             => Private24.MerchantPassword;
+
+        public decimal Balance { get; set; }
 
         public string SubmitTextButton
             => ResourceService.GetString(typeof(Strings), "AttachCard");

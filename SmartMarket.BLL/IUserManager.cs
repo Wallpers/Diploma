@@ -13,5 +13,6 @@ namespace SmartMarket.BLL
         bool ConfirmEmail(int id, string token);
         OAuthModel CreateOrUpdate(OAuthModel user);
         void Update(EditModel newModel);
+        int GetUserId(string email);
     }
 }

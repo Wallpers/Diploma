@@ -8,6 +8,7 @@ namespace SmartMarket.BLL
 {
     public interface IModelManager
     {
-        TModel GetModel<TModel>() where TModel : class;
+        UserModel GetModelForUser<UserModel>() where UserModel : class;
+        BalanceModel GetModelForBalance<BalanceModel>(int id) where BalanceModel : class;
     }
 }

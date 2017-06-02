@@ -1,0 +1,47 @@
+﻿@model SmartMarket.BLL.ViewModels.DetachBalanceModel
+
+
+<div class="modal-window">
+    <div class="modal-content">
+        <span id="close-detach-balance" class="close">&times;</span>
+        @using (Html.BeginForm("DetachBalance", "Private"))
+        {
+            <input id="UserID" name="UserID" type="hidden" value="@Model.BalanceID">
+            <br>
+            <div class="profile-container-wrapper ">
+                <div class="profile-item">
+                    <div class="profile-label">
+                        @Html.LabelFor(model => model.CardNumber)
+                    </div>
+                    <div class="profile-display">
+                        @Html.DisplayFor(model => model.CardNumber)
+                    </div>
+                </div>
+            </div>
+            <div class="profile-container-wrapper">
+                <div class="profile-item">
+                    <div class="profile-label">
+                        @Html.LabelFor(model => model.Balance)
+                    </div>
+                    <div class="profile-display">
+                        @Html.DisplayFor(model => model.Balance)
+                    </div>
+                </div>
+            </div>
+            <div class="profile-container-wrapper">
+                <div class="profile-item">
+                    <div class="profile-label">
+                        @Model.DetachConfirm
+                    </div>
+                </div>
+            </div>
+
+            <div class="profile-container-wrapper">
+                <input type="submit" id="detachCardButton" value="@Model.DetachTextButton" class="attach-button">
+            </div>
+        }
+    </div>
+</div>
+
+
+

@@ -162,4 +162,10 @@
   <data name="BalanceCreated" xml:space="preserve">
     <value>Счет создан.</value>
   </data>
+  <data name="DetachConfirm" xml:space="preserve">
+    <value>Вы подтверждаете открепление карты?</value>
+  </data>
+  <data name="Yes" xml:space="preserve">
+    <value>Да</value>
+  </data>
 </root>

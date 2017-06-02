@@ -106,6 +106,15 @@ namespace SmartMarket.BLL.Resources {
         }
         
         /// <summary>
+        ///   Looks up a localized string similar to Do you confirm detaching?.
+        /// </summary>
+        public static string DetachConfirm {
+            get {
+                return ResourceManager.GetString("DetachConfirm", resourceCulture);
+            }
+        }
+        
+        /// <summary>
         ///   Looks up a localized string similar to Email was confirmed..
         /// </summary>
         public static string EmailConfirmed {
@@ -187,20 +196,20 @@ namespace SmartMarket.BLL.Resources {
         }
         
         /// <summary>
-        ///   Looks up a localized string similar to .
-        /// </summary>
-        public static string String {
-            get {
-                return ResourceManager.GetString("String", resourceCulture);
-            }
-        }
-        
-        /// <summary>
         ///   Looks up a localized string similar to Take tests in:.
         /// </summary>
         public static string TechnologiesTittle {
             get {
                 return ResourceManager.GetString("TechnologiesTittle", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Yes.
+        /// </summary>
+        public static string Yes {
+            get {
+                return ResourceManager.GetString("Yes", resourceCulture);
             }
         }
     }

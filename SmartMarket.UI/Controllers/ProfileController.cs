@@ -22,14 +22,14 @@ namespace SmartMarket.UI.Controllers
         [HttpGet]
         public ActionResult Edit()
         {
-            var model = modelManager.GetModel<EditModel>();
+            var model = modelManager.GetModelForUser<EditModel>();
             return View(model);
         }
 
         [HttpPost]
         public ActionResult Edit(EditModel newModel)
         {
-            var oldModel = modelManager.GetModel<EditModel>();
+            var oldModel = modelManager.GetModelForUser<EditModel>();
             bool isEmailExists = true;
 
             if(newModel.Email != oldModel.Email)

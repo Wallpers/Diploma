@@ -7,7 +7,9 @@
         <div class="user-bar">
             <span>@item.Cash</span>
             <a id="info-icon" title="Info" href="#"></a>
-            <a id="detach-balance-icon" title="Detach card" href="#"></a>
+            @Ajax.ActionLink(" ", "DetachBalance", "Private", new { id = item.ID } ,new AjaxOptions { HttpMethod = "GET", InsertionMode = InsertionMode.Replace, UpdateTargetId = "detach-modal"}, new { @class = "detach-balance-icon", title = "Detach card" })
+            
+            @*<a id="detach-balance-icon" title="Detach card" href="#"></a>*@
         </div>
     }
 }

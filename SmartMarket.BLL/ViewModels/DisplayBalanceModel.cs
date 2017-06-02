@@ -10,6 +10,8 @@ namespace SmartMarket.BLL.ViewModels
 {
     public class DisplayBalanceModel
     {
+        public int ID { get; set; }
+
         [Display(ResourceType = typeof(DisplayNames), Name = "Cash")]
         public string Cash { get; set; }
 
