@@ -1,0 +1,65 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:orientation="vertical"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:minWidth="25px"
+    android:minHeight="25px">
+    <LinearLayout
+        android:orientation="horizontal"
+        android:layout_height="wrap_content"
+        android:layout_width="match_parent">
+        <TextView
+            android:text="Choose your card :"
+            android:layout_width="0px"
+            android:layout_weight="5"
+            android:layout_height="wrap_content"
+            android:textSize="20sp"
+            android:id="@+id/chooseCardTextView" />
+        <ListView
+            android:layout_width="0px"
+            android:layout_weight="5"
+            android:layout_height="wrap_content"
+            android:id="@+id/cardsListView" />
+    </LinearLayout>
+    <TextView
+        android:text="Select products :"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:textSize="20sp"
+        android:id="@+id/chooseProductsTextView" />
+    <ListView
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:id="@+id/purchasesListView" />
+    <LinearLayout
+        android:orientation="horizontal"
+        android:layout_height="wrap_content"
+        android:layout_width="match_parent">
+        <TextView
+            android:text=""
+            android:layout_width="0px"
+            android:layout_weight="65"
+            android:layout_height="wrap_content"
+            android:textSize="20sp"
+            android:id="@+id/emptyTextView" />
+        <TextView
+            android:text="TOTAL : "
+            android:layout_width="0px"
+            android:layout_weight="20"
+            android:layout_height="wrap_content"
+            android:textSize="20sp"
+            android:id="@+id/textView" />
+        <TextView
+            android:text="[TOTAL]"
+            android:layout_width="0px"
+            android:layout_weight="15"
+            android:layout_height="wrap_content"
+            android:id="@+id/totalTextView" />
+    </LinearLayout>
+    <Button
+        android:text="Pay"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:id="@+id/payButton" />
+</LinearLayout>
