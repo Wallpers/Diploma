@@ -10,7 +10,7 @@ namespace SmartMarket.BLL.Services
 {
     static class UserService
     {
-        public static string Key => "CurrentUser";
+        static string Key => "CurrentUser";
 
         public static User CurrentUser
         {
