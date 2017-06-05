@@ -65,44 +65,40 @@ namespace SmartMarket.UI.Controllers
         {
             model.CardNumber = GetDigits(model.CardNumber);
 
-            if (Request.IsAjaxRequest())
+            if (ModelState.IsValid)
             {
-                if (ModelState.IsValid)
-                {
-                    var payment = $"<prop name=\"cardnum\" value=\"{model.CardNumber}\" />" +
-                          $"<prop name=\"country\" value=\"{model.Country}\" />";
+                var payment = $"<prop name=\"cardnum\" value=\"{model.CardNumber}\" />" +
+                      $"<prop name=\"country\" value=\"{model.Country}\" />";
 
-                    var data = $"<oper>cmt</oper>" +
-                        $"<wait>0</wait>" +
-                        $"<test>0</test>" +
-                        $"<payment id=\"\">{payment}</payment>";
+                var data = $"<oper>cmt</oper>" +
+                    $"<wait>0</wait>" +
+                    $"<test>0</test>" +
+                    $"<payment id=\"\">{payment}</payment>";
 
-                    var sign = GenerateSign(data.ToString(), Private24.MerchantPassword);
-                    var merchant = $"<id>{Private24.MerchantID}</id>" +
-                                    $"<signature>{sign}</signature>";
+                var sign = GenerateSign(data.ToString(), Private24.MerchantPassword);
+                var merchant = $"<id>{Private24.MerchantID}</id>" +
+                                $"<signature>{sign}</signature>";
 
-                    var request = $"<merchant>{merchant}</merchant>" +
-                        $"<data>{data}</data>";
+                var request = $"<merchant>{merchant}</merchant>" +
+                    $"<data>{data}</data>";
 
-                    var content = $"<request version=\"1.0\">{request}</request>";
+                var content = $"<request version=\"1.0\">{request}</request>";
 
-                    var result = sendXML("https://api.privatbank.ua/p24api/balance", content);
+                var result = sendXML("https://api.privatbank.ua/p24api/balance", content);
 
-                    XmlDocument xml = new XmlDocument();
-                    xml.LoadXml(result);
+                XmlDocument xml = new XmlDocument();
+                xml.LoadXml(result);
 
-                    model.Balance = Convert.ToDecimal(xml.GetElementsByTagName("balance").Item(0).InnerText, CultureInfo.InvariantCulture);
-                    //var currency = xml.GetElementsByTagName("currency").Item(0).InnerText;
+                model.Balance = Convert.ToDecimal(xml.GetElementsByTagName("balance").Item(0).InnerText, CultureInfo.InvariantCulture);
+                //var currency = xml.GetElementsByTagName("currency").Item(0).InnerText;
 
-                    privateManager.CreateBalance(model);
+                privateManager.CreateBalance(model);
 
-                    var message = ResourceService.GetString(typeof(Strings), "BalanceCreated");
-                    return JavaScript($"window.location = '{Url.Action("Index", "Home", new { message = message })}'");
-                }
-                return PartialView("~/Views/Partial/_AttachBalance.cshtml", model);
+                var message = ResourceService.GetString(typeof(Strings), "BalanceCreated");
+                return JavaScript($"window.location = '{Url.Action("Index", "Home", new { message = message })}'");
             }
 
-            return RedirectToAction("Index", "Home");
+            return PartialView("~/Views/Partial/_AttachBalance.cshtml", model);
         }
 
         public ActionResult DetachBalance(int? id)
