@@ -3,7 +3,7 @@ using SmartMarket.DAL.Entities;
 using SmartMarket.BLL.ViewModels;
 using System;
 using System.Collections.Generic;
-
+using System.Globalization;
 
 namespace SmartMarket.BLL.Services
 {
@@ -211,7 +211,9 @@ namespace SmartMarket.BLL.Services
                     destination.ID = source.ID;
 
                 if (source.Cash != 0)
-                    destination.Cash = source.Cash.ToString("C");
+                {
+                    destination.Cash = source.Cash.ToString() + " ₴";
+                }
 
                 destination.Currency = source.Currency.ToString().ToLower();
 
@@ -316,7 +318,7 @@ namespace SmartMarket.BLL.Services
                 }
 
                 if (source.Cash != 0)
-                    destination.Balance = source.Cash.ToString("C");
+                    destination.Balance = source.Cash.ToString() + " ₴";
 
 
                 return destination;
