@@ -10,7 +10,8 @@ namespace SmartMarket.BLL.Services
 {
     static class UserService
     {
-        static string Key => "CurrentUser";
+        private static string Key => 
+            HttpContext.Current.User.Identity.Name ?? "";
 
         public static User CurrentUser
         {
@@ -19,10 +20,10 @@ namespace SmartMarket.BLL.Services
                 if (HttpContext.Current != null)
                 {
                     var user = HttpContext.Current.Session[Key] as User;
-                    if (user == null)
-                    {
+
+                    if (user == null && Key != "")
                         user = Refresh();
-                    }
+                    
                     return user;
                 }
 
@@ -39,8 +40,7 @@ namespace SmartMarket.BLL.Services
 
         public static User Refresh()
         {
-            var email = HttpContext.Current.User.Identity.Name;
-            var user = (new UserManager()).FirstOrDefault(x => x.Email == email);
+            var user = (new UserManager()).FirstOrDefault(x => x.Email == Key);
             HttpContext.Current.Session[Key] = user;
             return user;
         }

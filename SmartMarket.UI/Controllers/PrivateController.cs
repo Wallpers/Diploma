@@ -50,7 +50,7 @@ namespace SmartMarket.UI.Controllers
 
             var content = $"<request version=\"1.0\">{request}</request>";
 
-            var result = sendXML("https://api.privatbank.ua/p24api/balance", content);
+            var result = SendXML("https://api.privatbank.ua/p24api/balance", content);
 
             XmlDocument xml = new XmlDocument();
             xml.LoadXml(result);
@@ -84,7 +84,7 @@ namespace SmartMarket.UI.Controllers
 
                 var content = $"<request version=\"1.0\">{request}</request>";
 
-                var result = sendXML("https://api.privatbank.ua/p24api/balance", content);
+                var result = SendXML("https://api.privatbank.ua/p24api/balance", content);
 
                 XmlDocument xml = new XmlDocument();
                 xml.LoadXml(result);
@@ -95,10 +95,10 @@ namespace SmartMarket.UI.Controllers
                 privateManager.CreateBalance(model);
 
                 var message = ResourceService.GetString(typeof(Strings), "BalanceCreated");
-                return JavaScript($"window.location = '{Url.Action("Index", "Home", new { message = message })}'");
+                //return JavaScript($"window.location = '{Url.Action("Index", "Home", new { message = message })}'");
             }
 
-            return PartialView("~/Views/Partial/_AttachBalance.cshtml", model);
+            return RedirectToAction("Index", "Home", "Карта успешно прикреплена.");//PartialView("~/Views/Partial/_AttachBalance.cshtml", model);
         }
 
         public ActionResult DetachBalance(int? id)
@@ -133,7 +133,7 @@ namespace SmartMarket.UI.Controllers
             return bytes.Select(b => b.ToString("x2")).Aggregate("", (total, cur) => total + cur);
         }
 
-        private string sendXML(string url, string xml)
+        private string SendXML(string url, string xml)
         {
             var request = WebRequest.Create(url) as HttpWebRequest;
             var bytes = Encoding.ASCII.GetBytes(xml);

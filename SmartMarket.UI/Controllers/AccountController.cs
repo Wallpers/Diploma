@@ -58,6 +58,8 @@ namespace SmartMarket.UI.Controllers
         [HttpGet]
         public ActionResult Logout()
         {
+            
+            HttpContext.Session[HttpContext.User.Identity.Name] = null;
             FormsAuthentication.SignOut();
             return RedirectToAction("Index", "Home");
         }
@@ -91,9 +93,11 @@ namespace SmartMarket.UI.Controllers
                         model.StatusMessage = message;
                         
                     }
-
-                    message = ResourceService.GetString(typeof(ErrorMessages), "EmailAlreadyExists");
-                    ModelState.AddModelError("EmailAlreadyExists", message);
+                    else
+                    {
+                        message = ResourceService.GetString(typeof(ErrorMessages), "EmailAlreadyExists");
+                        ModelState.AddModelError("EmailAlreadyExists", message);
+                    }
                 }
 
                 return PartialView("~/Views/Partial/Account/_Registry.cshtml", model);
@@ -108,11 +112,11 @@ namespace SmartMarket.UI.Controllers
             if (userManager.ConfirmEmail(id, token))
             {
                 var message = ResourceService.GetString(typeof(Strings), "EmailConfirmed");
-                return RedirectToAction("Index", "Home",  message );
+                return RedirectToAction("Index", "Home",  new { message = message } );
             }
 
             var error = ResourceService.GetString(typeof(Strings), "EmailNotConfirmed");
-            return RedirectToAction("Index", "Home", error );
+            return RedirectToAction("Index", "Home", new { message = error });
         }
 
     }
